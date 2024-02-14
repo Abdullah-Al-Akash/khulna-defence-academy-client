@@ -4,13 +4,13 @@ import { IoLocation } from "react-icons/io5";
 
 const TopVar = () => {
   return (
-    <div className="md:flex bg-[#092e20] md:px-[84px] py-3 md:gap-8 px-4">
+    <div className="hidden md:flex bg-[#092e20] md:px-[84px] py-3 md:gap-8 px-4">
       <div className="flex text-white items-center ">
-        <IoLocation />
+        <IoLocation className="text-yellow-400 text-xl"></IoLocation>
         <h3 className="ps-2">27/5 ঠিকানা, ঠিকানা</h3>
       </div>
       <div className="flex items-center  text-white">
-        <MdEmail />
+        <MdEmail className="text-yellow-400 text-xl"></MdEmail>
 
         <h3 className="ps-2">info@yourmail.com</h3>
       </div>
