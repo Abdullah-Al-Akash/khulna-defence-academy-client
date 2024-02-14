@@ -1,0 +1,16 @@
+import { Outlet } from "react-router-dom";
+import Navbar from "../../Shared/Navbar/Navbar";
+import Footer from "../../Shared/Footer/Footer";
+
+const Main = () => {
+  // max-w-[1512px] xl:mx-auto  mx-3
+  return (
+    <div className="">
+      <Navbar></Navbar>
+      <Outlet></Outlet>
+      <Footer></Footer>
+    </div>
+  );
+};
+
+export default Main;
