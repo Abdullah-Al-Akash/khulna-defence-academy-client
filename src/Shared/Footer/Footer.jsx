@@ -28,7 +28,7 @@ const Footer = () => {
             </div>
           </div>
         </nav>
-        <nav className="text-white md:ms-[40px] mt-[30px]">
+        <nav className="text-white md:ms-[70px] mt-[30px]">
           <h6 className="footer-title ">সাইটম্যাপ</h6>
           <a className="link link-hover  hover:text-yellow-500">মূল পাতা</a>
           <a className="link link-hover  hover:text-yellow-500">
