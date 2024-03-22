@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import ApplySection from "./ApplySection";
 import QAPage from "../QAPage/QAPage";
 import AboutPage from "../AboutPage/AboutPage";
+import Course from "../Course/Course";
 
 const HomePage = () => {
   return (
@@ -10,6 +11,7 @@ const HomePage = () => {
       <Banner></Banner>
       <ApplySection></ApplySection>
       <AboutPage></AboutPage>
+      <Course></Course>
       <QAPage></QAPage>
     </div>
   );
