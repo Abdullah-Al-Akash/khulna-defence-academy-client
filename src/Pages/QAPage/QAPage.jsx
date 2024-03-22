@@ -3,12 +3,12 @@ import FAQ from "../../assets/faq.png";
 
 const QAPage = () => {
   return (
-    <div className="md:px-[84px] py-12">
+    <div className="md:px-[84px] py-12 px-[12px]">
       <h3 className="text-center font-bold text-[15px]">বহুল জিজ্ঞাসিত</h3>
       <h1 className="text-center font-bold text-[35px]">প্রশ্নের উত্তর</h1>
       <div className="grid md:grid-cols-2 grid-cols-1 gap-4 py-8">
         <div>
-          <img className="w-3/4 mx-auto" src={FAQ} alt="" />
+          <img className="md:w-3/4 w-2/4 mx-auto" src={FAQ} alt="" />
         </div>
         <div>
           <div className="collapse collapse-arrow bg-base-200">

@@ -8,7 +8,7 @@ const Main = () => {
   // max-w-[1512px] xl:mx-auto  mx-3
   return (
     <div className="">
-      <TopVar></TopVar>
+      {/* <TopVar></TopVar> */}
       <Heading></Heading>
       <Navbar></Navbar>
       <Outlet></Outlet>

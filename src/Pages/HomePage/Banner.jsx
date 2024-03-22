@@ -1,15 +1,16 @@
 import React from "react";
 import "./Banner.css";
+import banner from "../../assets/bg-home.jpg";
 const Banner = () => {
   return (
-    <div className="banner">
-      <div className="p-2">
+    <div className="">
+      {/* <div className="p-2">
         <div className="text-white">
-          <h1 className="text-center">Put your mind</h1>
-          <h2 className="text-center">to the test</h2>
-          <p className="pt-4 text-center">
-            The World's Leading Online IQ Test.
-          </p>
+          <p className="text-center text-[40px]">যোগ দিন</p>
+          <h2 className="text-center text-[50px] font-bold py-[16px]">
+            বাংলাদেশ সেনা, নৌ ও বিমানবাহিনীতে
+          </h2>
+          <p className="text-center text-[40px]">অফিসার পদে</p>
         </div>
         <div className="mt-4 flex justify-center">
           <div>
@@ -21,7 +22,8 @@ const Banner = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
+      <img src={banner} alt="" />
     </div>
   );
 };

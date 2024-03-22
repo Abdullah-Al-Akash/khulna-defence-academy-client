@@ -26,10 +26,12 @@ const AboutPage = () => {
           </p>
         </div>
         <div className="bg-white shadow-2xl py-[35px] rounded-md">
-          <h3 className="font-bold text-[35px] text-center">নোটিশ</h3>
-          <p className="text-[20px] font-bold text-center pb-[10px]">
+          <h3 className="font-bold text-[35px] text-center">
+            চলমান সার্কুলার সমূহ
+          </h3>
+          {/* <p className="text-[20px] font-bold text-center pb-[10px]">
             গুরুত্বপূর্ন তারিখগুলো
-          </p>
+          </p> */}
           <div className="text-center">
             <h3 className="font-bold text-[20px] my-[15px] hover:text-yellow-500 cursor-pointer">
               বাংলাদেশ নৌবাহিনী বেসামরিক চাকরির <br /> বিজ্ঞপ্তি 2022
@@ -38,7 +40,7 @@ const AboutPage = () => {
               <div>
                 <FaCalendarAlt className="text-[20px] text-yellow-500 me-2"></FaCalendarAlt>
               </div>
-              <h3>24 ফেব্রুয়ারি, 2022</h3>
+              <h3>আবেদনের শেষ তারিখঃ 24 ফেব্রুয়ারি, 2022</h3>
             </div>
             <hr className="w-3/4 mx-auto mt-8"></hr>
           </div>

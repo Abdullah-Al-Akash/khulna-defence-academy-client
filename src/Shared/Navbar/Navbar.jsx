@@ -42,7 +42,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="md:px-[84px] py-4">
+    <div className="md:px-[84px]">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">

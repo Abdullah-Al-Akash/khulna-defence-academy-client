@@ -9,7 +9,7 @@ import { MdEmail } from "react-icons/md";
 const Footer = () => {
   return (
     <div className="">
-      <footer className="footer grid md:grid-cols-4 grid-cols-1 gap-4 md:px-[84px] px-[20px] py-4 bg-[#092e20]">
+      <footer className="footer grid md:grid-cols-3 grid-cols-1 gap-4 md:px-[84px] px-[20px] py-4 bg-[#092e20]">
         <nav className="">
           <div className="mx-auto">
             <img className="" src={logo} alt="" />
@@ -28,40 +28,46 @@ const Footer = () => {
             </div>
           </div>
         </nav>
-        <nav className="text-white md:ms-[70px] mt-[30px]">
-          <h6 className="footer-title ">সাইটম্যাপ</h6>
-          <a className="link link-hover  hover:text-yellow-500">মূল পাতা</a>
-          <a className="link link-hover  hover:text-yellow-500">
-            আমাদের সম্পর্কে
-          </a>
-          <a className="link link-hover  hover:text-yellow-500">গ্যালারি</a>
-          <a className="link link-hover  hover:text-yellow-500">বইসমূহ</a>
-          <a className="link link-hover  hover:text-yellow-500">যোগাযোগ</a>
-        </nav>
-        <nav className="text-white mt-[30px]">
-          <h6 className="footer-title ">সাহায্য</h6>
-          <a className="link link-hover  hover:text-yellow-500">
-            প্রশ্নের উত্তর
-          </a>
-          <a className="link link-hover  hover:text-yellow-500">গোপনীয়তা</a>
-          <a className="link link-hover  hover:text-yellow-500">নীতি</a>
-          <a className="link link-hover  hover:text-yellow-500">সাহায্য</a>
-          <a className="link link-hover  hover:text-yellow-500">ডকুমেন্টেশন</a>
-        </nav>
+        <div className="grid grid-cols-2">
+          <nav className="text-white md:ms-[70px] mt-[30px]">
+            <h6 className="footer-title ">সাইটম্যাপ</h6>
+            <h6 className="link link-hover  hover:text-yellow-500">মূল পাতা</h6>
+            <h6 className="link link-hover  hover:text-yellow-500">
+              আমাদের সম্পর্কে
+            </h6>
+            <h6 className="link link-hover  hover:text-yellow-500">গ্যালারি</h6>
+            <h6 className="link link-hover  hover:text-yellow-500">বইসমূহ</h6>
+            <h6 className="link link-hover  hover:text-yellow-500">যোগাযোগ</h6>
+          </nav>
+          <nav className="text-white mt-[30px] ms-[60px]">
+            <h6 className="footer-title ">সাহায্য</h6>
+            <h6 className="link link-hover  hover:text-yellow-500">
+              প্রশ্নের উত্তর
+            </h6>
+            <h6 className="link link-hover  hover:text-yellow-500">
+              গোপনীয়তা
+            </h6>
+            <h6 className="link link-hover  hover:text-yellow-500">নীতি</h6>
+            <h6 className="link link-hover  hover:text-yellow-500">সাহায্য</h6>
+            <h6 className="link link-hover  hover:text-yellow-500">
+              ডকুমেন্টেশন
+            </h6>
+          </nav>
+        </div>
         <nav className="text-white mt-[30px]">
           <h6 className="footer-title">যোগাযোগ করুন</h6>
-          <a className="link link-hover flex  justify-center items-center">
+          <h6 className="link link-hover flex  justify-center items-center">
             <FaHome className="text-yellow-400 text-[45px] me-[15px]"></FaHome>
             ২৯/১, শেরে-বাংলা রোড (ময়লাপোতা মোড়, শাপলা ক্লিনিকের পাশে), খুলনা।
-          </a>
-          <a className="link link-hover flex  justify-center items-center">
+          </h6>
+          <h6 className="link link-hover flex  justify-center items-center">
             <IoCall className="text-yellow-400 text-[25px] me-[15px]"></IoCall>
             +3 123 456 789
-          </a>
-          <a className="link link-hover flex  justify-center items-center">
+          </h6>
+          <h6 className="link link-hover flex  justify-center items-center">
             <MdEmail className="text-yellow-400 text-[25px] me-[15px]"></MdEmail>
             info@yourmail.com
-          </a>
+          </h6>
         </nav>
       </footer>
     </div>

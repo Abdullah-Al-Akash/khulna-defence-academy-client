@@ -1,34 +1,35 @@
 .banner {
   height: 100vh;
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  /* background-position: center; */
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
   animation: animate 9s ease-in-out infinite;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("../../assets/bg-home.jpg");
 }
 
 /* For Slider */
 
-@keyframes animate {
+/* @keyframes animate {
   0% {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-      url("../../assets/banner1.jpg");
+    background-image: (rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("../../assets/bg-home.jpg");
   }
   100% {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-      url("../../assets/banner2.jpg");
+      url("");
   }
-}
+} */
 
-.banner h1 {
+/* .banner h1 {
   font-size: 4rem;
   font-weight: 700;
   margin: 0;
   padding: 0;
-}
+} */
 
 .banner h2 {
   font-size: 3rem;
