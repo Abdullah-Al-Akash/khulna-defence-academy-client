@@ -14,7 +14,7 @@ const TopVar = () => {
 
         <h3 className="ps-2">info@yourmail.com</h3>
       </div>
-      <div class="ms-auto">
+      <div className="ms-auto">
         <h3 className="text-yellow-400 font-bold">
           Khulna Defence Coaching | Come . Learn . Conquer
         </h3>

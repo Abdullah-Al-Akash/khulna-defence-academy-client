@@ -13,7 +13,7 @@ const QAPage = () => {
         <div>
           <div className="collapse collapse-arrow bg-base-200">
             <input type="radio" name="my-accordion-2" defaultChecked />
-            <div className="collapse-title text-xl font-medium text-yellow-400 bg-[#092e20]">
+            <div className="collapse-title  font-medium text-yellow-400 bg-[#092e20]">
               প্রশ্নের উত্তর দিন
             </div>
             <div className="collapse-content">
@@ -30,7 +30,7 @@ const QAPage = () => {
           </div>
           <div className="collapse collapse-arrow bg-base-200 mt-2">
             <input type="radio" name="my-accordion-2" />
-            <div className="collapse-title text-xl font-medium text-yellow-400 bg-[#092e20]">
+            <div className="collapse-title  font-medium text-yellow-400 bg-[#092e20]">
               প্রশ্নের উত্তর দিন
             </div>
             <div className="collapse-content">
@@ -47,7 +47,7 @@ const QAPage = () => {
           </div>
           <div className="collapse collapse-arrow bg-base-200 mt-2">
             <input type="radio" name="my-accordion-2" />
-            <div className="collapse-title text-xl font-medium text-yellow-400 bg-[#092e20]">
+            <div className="collapse-title  font-medium text-yellow-400 bg-[#092e20]">
               প্রশ্নের উত্তর দিন
             </div>
             <div className="collapse-content">

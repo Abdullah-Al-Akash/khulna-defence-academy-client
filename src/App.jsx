@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div>
-      <button class="btn">Button</button>
+      <button className="btn">Button</button>
     </div>
   );
 }

@@ -30,7 +30,9 @@ const Footer = () => {
         </nav>
         <div className="grid grid-cols-2">
           <nav className="text-white md:ms-[70px] mt-[30px]">
-            <h6 className="footer-title ">সাইটম্যাপ</h6>
+            <h6 className="text-yellow-400 font-bold text-[16px] pb-[15px]">
+              সাইটম্যাপ
+            </h6>
             <h6 className="link link-hover  hover:text-yellow-500">মূল পাতা</h6>
             <h6 className="link link-hover  hover:text-yellow-500">
               আমাদের সম্পর্কে
@@ -40,7 +42,9 @@ const Footer = () => {
             <h6 className="link link-hover  hover:text-yellow-500">যোগাযোগ</h6>
           </nav>
           <nav className="text-white mt-[30px] ms-[60px]">
-            <h6 className="footer-title ">সাহায্য</h6>
+            <h6 className="text-yellow-400 font-bold text-[16px] pb-[15px] ">
+              সাহায্য
+            </h6>
             <h6 className="link link-hover  hover:text-yellow-500">
               প্রশ্নের উত্তর
             </h6>
@@ -55,7 +59,9 @@ const Footer = () => {
           </nav>
         </div>
         <nav className="text-white mt-[30px]">
-          <h6 className="footer-title">যোগাযোগ করুন</h6>
+          <h6 className="text-yellow-400 font-bold text-[16px] pb-[15px]">
+            যোগাযোগ করুন
+          </h6>
           <h6 className="link link-hover flex  justify-center items-center">
             <FaHome className="text-yellow-400 text-[45px] me-[15px]"></FaHome>
             ২৯/১, শেরে-বাংলা রোড (ময়লাপোতা মোড়, শাপলা ক্লিনিকের পাশে), খুলনা।
