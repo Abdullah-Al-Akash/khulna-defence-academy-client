@@ -5,7 +5,6 @@ import TopVar from "../../Shared/TopVar/TopVar";
 import Heading from "../../Shared/Heading/Heading";
 
 const Main = () => {
-  // max-w-[1512px] xl:mx-auto  mx-3
   return (
     <div className="">
       {/* <TopVar></TopVar> */}
