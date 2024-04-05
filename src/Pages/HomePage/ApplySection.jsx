@@ -10,7 +10,7 @@ const ApplySection = () => {
           </h2>
         </div>
         <div className="md:pe-[50px]">
-          <div className="grid md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4">
+          <div className="grid md:grid-cols-2 sm:grid-cols-1 grid-cols-2 gap-4">
             <button className="btn font-bold bg-yellow-400 border-none md:text-xl hover:bg-red-600 hover:text-white mx-2">
               আবেদন নির্দেশিকা
             </button>
@@ -18,7 +18,7 @@ const ApplySection = () => {
               আবেদন যোগ্যতা
             </button>
           </div>
-          <div className="grid md:grid-cols-3 grid-cols-1 my-2">
+          <div className="grid md:grid-cols-3 grid-cols-2 my-2">
             <button className=" btn font-bold bg-yellow-400 border-none md:text-xl hover:bg-red-600 hover:text-white mx-2 my-2">
               পরীক্ষা পদ্ধতি
             </button>

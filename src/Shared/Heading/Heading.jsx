@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo1-01-01.png";
 import supportImg from "../../assets/support.png";
+import { Link } from "react-router-dom";
 
 const Heading = () => {
   return (
@@ -24,9 +25,11 @@ const Heading = () => {
             </div>
           </div>
           <div className="w-1/8">
-            <button className="btn text-2xl bg-yellow-400 text-black font-semibold hover:bg-black hover:text-yellow-400">
-              নিবন্ধন
-            </button>
+            <Link to="login">
+              <button className="btn text-2xl bg-yellow-400 text-black font-semibold hover:bg-black hover:text-yellow-400">
+                নিবন্ধন
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ const Main = () => {
     <div className="">
       {/* <TopVar></TopVar> */}
       <Heading></Heading>
-      <Navbar></Navbar>
+
       <Outlet></Outlet>
       <Footer></Footer>
     </div>
