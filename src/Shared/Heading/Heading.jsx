@@ -10,7 +10,9 @@ const Heading = () => {
       <div className="hidden md:block">
         <div className="flex items-center justify-between">
           <div className="w-1/8">
-            <img src={logo} alt="" />
+            <Link to="/">
+              <img src={logo} alt="" />
+            </Link>
           </div>
           <div className="w-1/8">
             <h2 className="text-5xl font-extrabold">
@@ -36,7 +38,9 @@ const Heading = () => {
       {/* For Mobile Device */}
       <div className="block md:hidden pt-[6px]">
         <div>
-          <img className="mx-auto w-1/4" src={logo} alt="" />
+          <Link to="/">
+            <img src={logo} alt="" />
+          </Link>
         </div>
         <div>
           <h2 className="text-2xl font-extrabold text-center">
