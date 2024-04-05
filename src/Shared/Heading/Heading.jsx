@@ -27,7 +27,7 @@ const Heading = () => {
           <div className="w-1/8">
             <Link to="login">
               <button className="btn text-2xl bg-yellow-400 text-black font-semibold hover:bg-black hover:text-yellow-400">
-                নিবন্ধন
+                লগিন করুন
               </button>
             </Link>
           </div>

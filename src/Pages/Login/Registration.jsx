@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Registration = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-[10px]">
       <div className="bg-white p-8 rounded-lg shadow-md w-full sm:w-96">
-        <h2 className="text-2xl font-bold mb-4">Register</h2>
+        {/* <h2 className="text-2xl font-bold mb-4 text-center">লগিন করুন</h2> */}
         <form>
           <div className="mb-4">
             <label htmlFor="username" className="block text-gray-600">
-              Username
+              আপনার নাম
             </label>
             <input
               type="text"
@@ -16,12 +17,25 @@ const Registration = () => {
               name="username"
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
               style={{ outline: "none" }}
-              placeholder="Enter your username"
+              placeholder="Your Name"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="username" className="block text-gray-600">
+              মোবাইল নাম্বার
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+              style={{ outline: "none" }}
+              placeholder="Mobile Number"
             />
           </div>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-600">
-              Email Address
+              ইমেইল
             </label>
             <input
               type="email"
@@ -29,12 +43,12 @@ const Registration = () => {
               name="email"
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
               style={{ outline: "none" }}
-              placeholder="Enter your email address"
+              placeholder="Email"
             />
           </div>
           <div className="mb-4">
             <label htmlFor="password" className="block text-gray-600">
-              Password
+              পাসওয়ার্ড
             </label>
             <input
               type="password"
@@ -42,12 +56,12 @@ const Registration = () => {
               name="password"
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
               style={{ outline: "none" }}
-              placeholder="Enter your password"
+              placeholder="Password"
             />
           </div>
           <div className="mb-6">
             <label htmlFor="confirmPassword" className="block text-gray-600">
-              Confirm Password
+              পুনরায় পাসওয়ার্ড দিন
             </label>
             <input
               type="password"
@@ -55,19 +69,22 @@ const Registration = () => {
               name="confirmPassword"
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
               style={{ outline: "none" }}
-              placeholder="Confirm your password"
+              placeholder="Confirm Password"
             />
           </div>
           <div className="flex items-center justify-between">
             <button
               type="submit"
-              className="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none"
+              className="btn bg-yellow-400 text-black font-semibold hover:bg-black hover:text-yellow-400"
             >
-              Register
+              রেজিস্ট্রেশন করুন
             </button>
-            <a href="#" className="text-sm text-gray-600 hover:underline">
-              Already have an account? Login
-            </a>
+            <Link
+              to="/login"
+              className="ms-2 text-sm text-gray-600 hover:underline"
+            >
+              একাউন্ট আছে? লগিন করুন
+            </Link>
           </div>
         </form>
       </div>

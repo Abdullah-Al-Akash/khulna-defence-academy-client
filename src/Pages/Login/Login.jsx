@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -16,7 +17,7 @@ const Login = () => {
               name="username"
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
               style={{ outline: "none" }}
-              placeholder="Enter your username"
+              placeholder="Mobile Number"
             />
           </div>
           <div className="mb-4">
@@ -29,7 +30,7 @@ const Login = () => {
               name="email"
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
               style={{ outline: "none" }}
-              placeholder="Enter your email address"
+              placeholder="Email"
             />
           </div>
           <div className="mb-4">
@@ -42,7 +43,7 @@ const Login = () => {
               name="password"
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
               style={{ outline: "none" }}
-              placeholder="Enter your password"
+              placeholder="Password"
             />
           </div>
           <div className="mb-6">
@@ -55,7 +56,7 @@ const Login = () => {
               name="confirmPassword"
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
               style={{ outline: "none" }}
-              placeholder="Confirm your password"
+              placeholder="Confirm password"
             />
           </div>
           <div className="flex items-center justify-between">
@@ -65,9 +66,12 @@ const Login = () => {
             >
               লগিন করুন
             </button>
-            <a href="#" className="text-sm text-gray-600 hover:underline">
-              একাউন্ট আছে? লগিন করুন
-            </a>
+            <Link
+              to="/registration"
+              className="text-sm text-gray-600 hover:underline"
+            >
+              একাউন্ট নেই? রেজিস্ট্রেশন করুন
+            </Link>
           </div>
         </form>
       </div>
