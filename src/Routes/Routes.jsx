@@ -5,6 +5,7 @@ import AboutComponent from "../Components/AboutComponent/AboutComponent";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Login/Registration";
 import MyProfileComponent from "../Components/MyProfileComponent/MyProfileComponent";
+import OnlineTest from "../Components/OnlineTest/OnlineTest";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         element: <MyProfileComponent></MyProfileComponent>,
+      },
+      {
+        path: "/test",
+        element: <OnlineTest></OnlineTest>,
       },
     ],
   },

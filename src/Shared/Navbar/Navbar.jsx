@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navOptions = (
@@ -30,9 +31,12 @@ const Navbar = () => {
         </a>
       </li>
       <li>
-        <a className="text-sm font-bold hover:text-yellow-400 hover:bg-white">
+        <Link
+          to="/test"
+          className="text-sm font-bold hover:text-yellow-400 hover:bg-white"
+        >
           অনলাইন টেস্ট
-        </a>
+        </Link>
       </li>
       <li>
         <a className="text-sm font-bold hover:text-yellow-400 hover:bg-white">
