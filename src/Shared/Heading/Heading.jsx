@@ -37,15 +37,24 @@ const Heading = () => {
       </div>
       {/* For Mobile Device */}
       <div className="block md:hidden pt-[6px]">
-        <div>
-          <Link to="/">
-            <img src={logo} alt="" />
-          </Link>
-        </div>
-        <div>
-          <h2 className="text-2xl font-extrabold text-center">
-            Khulna Defence <span className="text-yellow-400">Coaching</span>
-          </h2>
+        <div className="flex justify-between items-center">
+          <div>
+            <Link to="/">
+              <img className="" width="70px" src={logo} alt="" />
+            </Link>
+          </div>
+          <div>
+            <h2 className="text-xl font-extrabold text-center">
+              Khulna Defence <span className="text-yellow-400">Coaching</span>
+            </h2>
+          </div>
+          <div className="">
+            <Link to="login">
+              <button className="btn bg-yellow-400 text-black font-semibold hover:bg-black hover:text-yellow-400">
+                লগিন করুন
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
