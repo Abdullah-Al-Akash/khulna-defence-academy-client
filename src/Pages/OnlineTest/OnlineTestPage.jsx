@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const OnlineTestPage = () => {
-  const [selectedTime, setSelectedTime] = useState(null); // No default time
+  const [selectedTime, setSelectedTime] = useState(null);
   const [minutesLeft, setMinutesLeft] = useState(0);
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [testStarted, setTestStarted] = useState(false);
@@ -52,33 +52,33 @@ const OnlineTestPage = () => {
       {showModal && (
         <dialog id="my_modal_1" className="modal">
           <div className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
             <p className="py-4">
-              Please enter time value between 1min to 100min
+              Please enter a time value between 1 minute and 100 minutes.
             </p>
             <div className="modal-action">
               <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
                 <button className="btn">Close</button>
               </form>
             </div>
           </div>
         </dialog>
       )}
-      <div className="mb-4">
-        <label htmlFor="timeInput" className="block mb-2 text-lg font-medium">
-          Set Time (minutes):
-        </label>
-        <input
-          type="number"
-          id="timeInput"
-          className="border border-gray-400 rounded-md p-2 w-full"
-          value={selectedTime}
-          min="1"
-          max="100"
-          onChange={handleTimeChange}
-        />
-      </div>
+      {!testStarted && (
+        <div className="mb-4">
+          <label htmlFor="timeInput" className="block mb-2 text-lg font-medium">
+            Set Time (minutes):
+          </label>
+          <input
+            type="number"
+            id="timeInput"
+            className="border border-gray-400 rounded-md p-2 w-full"
+            value={selectedTime}
+            min="1"
+            max="100"
+            onChange={handleTimeChange}
+          />
+        </div>
+      )}
       <div className={testStarted ? "text-xl font-medium" : "hidden"}>
         <p>
           Time left: {minutesLeft}m {secondsLeft}s

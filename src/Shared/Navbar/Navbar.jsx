@@ -26,7 +26,10 @@ const Navbar = () => {
         </a>
       </li>
       <li>
-        <a className="text-sm font-bold hover:text-yellow-400 hover:bg-white">
+        <a
+          href="#our-books"
+          className="text-sm font-bold hover:text-yellow-400 hover:bg-white"
+        >
           আমাদের বইসমূহ
         </a>
       </li>
