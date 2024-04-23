@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const OnlineTestPage = () => {
   const [selectedTime, setSelectedTime] = useState(null);
@@ -6,6 +6,13 @@ const OnlineTestPage = () => {
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [testStarted, setTestStarted] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [quizs, setQuizs] = useState([]);
+
+  useEffect(() => {
+    fetch("./quiz.json")
+      .then((res) => res.json())
+      .then((data) => setQuizs(data));
+  }, []);
 
   let timerInterval;
 
@@ -92,20 +99,64 @@ const OnlineTestPage = () => {
           Start Online Test
         </button>
       )}
-      {testStarted && <OtherComponent />}
+      {testStarted && <OtherComponent quizs={quizs} />}
     </div>
   );
 };
 
-const OtherComponent = () => {
+const OtherComponent = ({ quizs }) => {
+  console.log(quizs);
+  const [displayQues, setDisplayQues] = useState(1);
+  const handleNext = () => {
+    setDisplayQues(displayQues + 1);
+  };
+  const handleBack = () => {
+    setDisplayQues(displayQues - 1);
+  };
   return (
-    <div className="mt-[20px] py-[30px] mb-5 border p-2">
-      <h2 className="text-xl font-bold mb-4">Quiz Start</h2>
-      <p>Here will be quiz question</p>
-      <div className="flex justify-end">
-        <button className="mt-4 bg-yellow-400 hover:bg-black hover:text-yellow-400 text-black font-bold py-2 px-4 rounded">
-          Finish Test
-        </button>
+    <div className="pb-5">
+      <div className="mt-[20px] py-[30px] mb-5 border p-2">
+        <h2 className="text-xl font-bold mb-4">Quiz Start</h2>
+        <p>
+          {displayQues === 1
+            ? quizs[0].question
+            : quizs[displayQues - 1].question}
+        </p>
+        <div className="flex justify-between">
+          <button
+            disabled={displayQues == 1 || null ? true : false}
+            onClick={handleBack}
+            className={`mt-4  ${
+              displayQues == 1 || null
+                ? "bg-yellow-200 hover:bg-none text-gray-400 font-bold py-2 px-4 rounded"
+                : "bg-yellow-400 hover:bg-black hover:text-yellow-400 text-black font-bold py-2 px-4 rounded"
+            }`}
+          >
+            Back
+          </button>
+          <button
+            disabled={quizs.length == displayQues ? true : false}
+            onClick={handleNext}
+            className={`mt-4  ${
+              quizs.length == displayQues
+                ? "bg-yellow-200 hover:bg-none text-gray-400 font-bold py-2 px-4 rounded"
+                : "bg-yellow-400 hover:bg-black hover:text-yellow-400 text-black font-bold py-2 px-4 rounded"
+            }`}
+          >
+            Next
+          </button>
+        </div>
+      </div>
+      <div>
+        {quizs?.map((quiz) => (
+          <button
+            key={quiz.quizNumber}
+            onClick={() => setDisplayQues(quiz.quizNumber)}
+            className="mt-4 ms-2 bg-yellow-400 hover:bg-black hover:text-yellow-400 text-black font-bold py-2 px-4 rounded"
+          >
+            {quiz.quizNumber}
+          </button>
+        ))}
       </div>
     </div>
   );
