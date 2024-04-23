@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Login/Registration";
 import MyProfileComponent from "../Components/MyProfileComponent/MyProfileComponent";
 import OnlineTest from "../Components/OnlineTest/OnlineTest";
+import Forget from "../Pages/Login/Forget";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "/registration",
         element: <Registration></Registration>,
+      },
+      {
+        path: "/forget",
+        element: <Forget></Forget>,
       },
       {
         path: "/profile",
