@@ -1,9 +1,50 @@
-import React from "react";
+import { useContext } from "react";
 import logo from "../../assets/logo1-01-01.png";
 import supportImg from "../../assets/support.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Heading = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleUserLogOut = () => {
+    // Show confirmation dialog before logging out
+    Swal.fire({
+      title: "Are you sure you want to log out?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, log out!",
+      cancelButtonText: "No, cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // User confirmed, proceed with logout
+        logOut()
+          .then(() => {
+            // Sign-out successful, show success SweetAlert
+            Swal.fire({
+              icon: "success",
+              title: "Logged Out Successfully!",
+              text: "You have been logged out.",
+            });
+          })
+          .catch((error) => {
+            // Error during logout, show error alert
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: errorMessage,
+            });
+            console.error(errorCode, errorMessage);
+          });
+      }
+    });
+  };
+
   return (
     <div className="px-[20px] border-b-2">
       {/* For Large Device: */}
@@ -27,11 +68,24 @@ const Heading = () => {
             </div>
           </div>
           <div className="w-1/8">
-            <Link to="login">
-              <button className="btn text-2xl bg-yellow-400 text-black font-semibold hover:bg-black hover:text-yellow-400">
-                লগিন করুন
-              </button>
-            </Link>
+            {user ? (
+              <>
+                <button
+                  onClick={handleUserLogOut}
+                  className="btn text-2xl bg-yellow-400 text-black font-semibold hover:bg-black hover:text-yellow-400"
+                >
+                  লগ আউট
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="login">
+                  <button className="btn text-2xl bg-yellow-400 text-black font-semibold hover:bg-black hover:text-yellow-400">
+                    লগিন করুন
+                  </button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>
