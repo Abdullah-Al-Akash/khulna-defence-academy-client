@@ -41,7 +41,13 @@ const Registration = () => {
         .catch((error) => {
           // Error during registration, show error SweetAlert
           const errorCode = error.code;
-          const errorMessage = error.message;
+          let errorMessage = error.message;
+          if (
+            errorCode === "auth/email-already-in-use"
+          ) {
+            // Modify error message for Bengali users
+            errorMessage = "এই ইমেল ঠিকানা ইতিমধ্যে ব্যবহৃত হয়েছে!";
+          }
           Swal.fire({
             icon: "error",
             title: "Oops...",

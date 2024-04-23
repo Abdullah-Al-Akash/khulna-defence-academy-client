@@ -28,7 +28,11 @@ const Login = () => {
       .catch((error) => {
         // Error during login, show error alert
         const errorCode = error.code;
-        const errorMessage = error.message;
+        let errorMessage = error.message;
+        if (errorCode === "auth/invalid-credential") {
+          // Modify error message for Bengali users
+          errorMessage = "আপনার ইমেল / পাসওয়ার্ড ভুল হয়েছে!";
+        }
         Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -72,7 +76,7 @@ const Login = () => {
           </div>
 
           <Link to="/forget" className="text-sm text-gray-600 hover:underline">
-          পাসওয়ার্ড ভুলে গিয়েছেন? ফরগেট করুন
+            পাসওয়ার্ড ভুলে গিয়েছেন? ফরগেট করুন
           </Link>
 
           <div className="mt-4 flex items-center justify-between">
