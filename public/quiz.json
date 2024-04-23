@@ -1,0 +1,42 @@
+[
+  {
+    "quizNumber": 1,
+    "question": "How are you?",
+    "option1": "1",
+    "option2": "10",
+    "option3": "100",
+    "option4": "1000"
+  },
+  {
+    "quizNumber": 2,
+    "question": "How old are you?",
+    "option1": "1",
+    "option2": "10",
+    "option3": "100",
+    "option4": "1000"
+  },
+  {
+    "quizNumber": 3,
+    "question": "Who are you?",
+    "option1": "1",
+    "option2": "10",
+    "option3": "100",
+    "option4": "1000"
+  },
+  {
+    "quizNumber": 4,
+    "question": "I am Akash",
+    "option1": "1",
+    "option2": "10",
+    "option3": "100",
+    "option4": "1000"
+  },
+  {
+    "quizNumber": 5,
+    "question": "I am Fine",
+    "option1": "1",
+    "option2": "10",
+    "option3": "100",
+    "option4": "1000"
+  }
+]
