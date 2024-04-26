@@ -5,8 +5,10 @@ import AboutComponent from "../Components/AboutComponent/AboutComponent";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Login/Registration";
 import MyProfileComponent from "../Components/MyProfileComponent/MyProfileComponent";
-import OnlineTest from "../Components/OnlineTest/OnlineTest";
 import Forget from "../Pages/Login/Forget";
+import OnlineTest from "../Pages/OnlineTestPage/OnlineTest/OnlineTest";
+import OnlineTestPage from "../Pages/OnlineTest/OnlineTestPage";
+import QuizTimer from "../Pages/OnlineTestPage/QuizTimer/QuizTimer";
 
 export const router = createBrowserRouter([
   {
@@ -39,7 +41,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/test",
+        element: <OnlineTestPage></OnlineTestPage>,
+      },
+      {
+        path: "/onlineTest",
         element: <OnlineTest></OnlineTest>,
+      },
+      {
+        path: "/onlineTest/:id",
+        element: <QuizTimer></QuizTimer>,
       },
     ],
   },
