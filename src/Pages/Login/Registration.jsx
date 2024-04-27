@@ -4,7 +4,8 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Registration = () => {
-  const { createUserUsingEmailAndPassword, updateUserProfile } = useContext(AuthContext);
+  const { createUserUsingEmailAndPassword, updateUserProfile } =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleUserRegister = (e) => {
@@ -15,6 +16,12 @@ const Registration = () => {
     const email = form?.email?.value;
     const password = form?.password?.value;
     const confirmPassword = form?.confirmPassword?.value;
+    const userInformation = {
+      displayName,
+      mobileNumber,
+      email,
+      password,
+    };
 
     if (password !== confirmPassword) {
       // Passwords don't match, show SweetAlert error popup
@@ -28,6 +35,17 @@ const Registration = () => {
       createUserUsingEmailAndPassword(email, password)
         .then((userCredential) => {
           // User registration successful, show success SweetAlert
+          try {
+            fetch("http://localhost:5000/registration", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(userInformation),
+            });
+          } catch (err) {
+            console.log(err);
+          }
           Swal.fire({
             icon: "success",
             title: "Registration Successful!",
@@ -42,9 +60,7 @@ const Registration = () => {
           // Error during registration, show error SweetAlert
           const errorCode = error.code;
           let errorMessage = error.message;
-          if (
-            errorCode === "auth/email-already-in-use"
-          ) {
+          if (errorCode === "auth/email-already-in-use") {
             // Modify error message for Bengali users
             errorMessage = "এই ইমেল ঠিকানা ইতিমধ্যে ব্যবহৃত হয়েছে!";
           }
@@ -136,7 +152,10 @@ const Registration = () => {
             >
               রেজিস্ট্রেশন করুন
             </button>
-            <Link to="/login" className="ms-2 text-sm text-gray-600 hover:underline">
+            <Link
+              to="/login"
+              className="ms-2 text-sm text-gray-600 hover:underline"
+            >
               একাউন্ট আছে? লগিন করুন
             </Link>
           </div>
