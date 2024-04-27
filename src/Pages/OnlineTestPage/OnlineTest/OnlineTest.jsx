@@ -18,7 +18,9 @@ const OnlineTest = () => {
         {quizPackages.map((quizPackage, index) => (
           <div key={index} className="border rounded-lg p-4 bg-white shadow-md">
             <h2 className="text-xl font-bold mb-2">{quizPackage.name}</h2>
-            <p className="text-gray-700 mb-4">{quizPackage.totalQuiz} Quizzes</p>
+            <p className="text-gray-700 mb-4">
+              {quizPackage.totalQuiz} Quizzes
+            </p>
             <div className="mb-4">
               <h3 className="text-lg font-bold mb-1">Instructions:</h3>
               <ul className="list-disc pl-5">
