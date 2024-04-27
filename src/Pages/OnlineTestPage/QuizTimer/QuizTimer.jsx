@@ -1,20 +1,23 @@
 import { useEffect, useState } from "react";
 import QuizCard from "../QuizCard/QuizCard";
+import { useParams } from "react-router-dom";
 
 const QuizTimer = () => {
+  const { id } = useParams();
   const [selectedTime, setSelectedTime] = useState(null);
   const [minutesLeft, setMinutesLeft] = useState(0);
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [testStarted, setTestStarted] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [quizzes, setQuizzes] = useState([]);
-
+  const url = `http://localhost:5000/package?id=${id}`;
+  console.log(url);
   useEffect(() => {
-    fetch("../../../../public/quiz.json")
+    fetch(url)
       .then((res) => res.json())
       .then((data) => setQuizzes(data))
       .catch((error) => console.error("Error fetching quiz packages:", error));
-  }, []);
+  }, [url]);
 
   // console.log(quizzes);
 
@@ -63,7 +66,9 @@ const QuizTimer = () => {
       {showModal && (
         <dialog id="my_modal_1" className="modal">
           <div className="modal-box">
-            <p className="py-4">Please enter a time value between 1 minute and 100 minutes.</p>
+            <p className="py-4">
+              Please enter a time value between 1 minute and 100 minutes.
+            </p>
             <div className="modal-action">
               <form method="dialog">
                 <button className="btn">Close</button>
