@@ -1,0 +1,113 @@
+[
+    {
+      "quizNumber": 1,
+      "question": "What is the capital of France? from quiz 2",
+      "options": {
+        "option1": "London",
+        "option2": "Paris",
+        "option3": "Berlin",
+        "option4": "Rome"
+      },
+      "correctOption": "option2"
+    },
+    {
+      "quizNumber": 2,
+      "question": "Who wrote the play 'Hamlet'?",
+      "options": {
+        "option1": "William Shakespeare",
+        "option2": "Charles Dickens",
+        "option3": "Jane Austen",
+        "option4": "Leo Tolstoy"
+      },
+      "correctOption": "option1"
+    },
+    {
+      "quizNumber": 3,
+      "question": "What is the chemical symbol for gold?",
+      "options": {
+        "option1": "Ag",
+        "option2": "Au",
+        "option3": "Fe",
+        "option4": "Hg"
+      },
+      "correctOption": "option2"
+    },
+    {
+      "quizNumber": 4,
+      "question": "Which planet is known as the Red Planet?",
+      "options": {
+        "option1": "Jupiter",
+        "option2": "Mars",
+        "option3": "Venus",
+        "option4": "Saturn"
+      },
+      "correctOption": "option2"
+    },
+    {
+      "quizNumber": 5,
+      "question": "What is the largest mammal in the world?",
+      "options": {
+        "option1": "Elephant",
+        "option2": "Blue Whale",
+        "option3": "Giraffe",
+        "option4": "African Elephant"
+      },
+      "correctOption": "option2"
+    },
+    {
+      "quizNumber": 6,
+      "question": "What is the capital of Japan?",
+      "options": {
+        "option1": "Beijing",
+        "option2": "Seoul",
+        "option3": "Tokyo",
+        "option4": "Singapore"
+      },
+      "correctOption": "option3"
+    },
+    {
+      "quizNumber": 7,
+      "question": "Who painted the Mona Lisa?",
+      "options": {
+        "option1": "Leonardo da Vinci",
+        "option2": "Vincent van Gogh",
+        "option3": "Pablo Picasso",
+        "option4": "Claude Monet"
+      },
+      "correctOption": "option1"
+    },
+    {
+      "quizNumber": 8,
+      "question": "What is the powerhouse of the cell?",
+      "options": {
+        "option1": "Nucleus",
+        "option2": "Mitochondria",
+        "option3": "Ribosome",
+        "option4": "Endoplasmic Reticulum"
+      },
+      "correctOption": "option2"
+    },
+    {
+      "quizNumber": 9,
+      "question": "Who is known as the Father of Computers?",
+      "options": {
+        "option1": "Bill Gates",
+        "option2": "Alan Turing",
+        "option3": "Charles Babbage",
+        "option4": "Steve Jobs"
+      },
+      "correctOption": "option3"
+    },
+    {
+      "quizNumber": 10,
+      "question": "What is the chemical symbol for water?",
+      "options": {
+        "option1": "W",
+        "option2": "H2",
+        "option3": "O2",
+        "option4": "H2O"
+      },
+      "correctOption": "option4"
+    }
+  ]
+  

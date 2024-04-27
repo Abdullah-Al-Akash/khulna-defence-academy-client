@@ -16,7 +16,7 @@ const QuizTimer = () => {
       .catch((error) => console.error("Error fetching quiz packages:", error));
   }, []);
 
-  console.log(quizzes);
+  // console.log(quizzes);
 
   let timerInterval;
 
