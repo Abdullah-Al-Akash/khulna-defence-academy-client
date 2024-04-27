@@ -42,6 +42,14 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
+        <Link
+          to="/onlineTest"
+          className="text-sm font-bold hover:text-yellow-400 hover:bg-white"
+        >
+          অনলাইন টেস্ট 2
+        </Link>
+      </li>
+      <li>
         <a className="text-sm font-bold hover:text-yellow-400 hover:bg-white">
           যোগাযোগ
         </a>

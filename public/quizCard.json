@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Quiz Package 1",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  }, 
+  {
+    "id": 2,
+    "name": "Quiz Package 2",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  }
+]
