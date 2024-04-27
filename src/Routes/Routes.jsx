@@ -9,6 +9,8 @@ import Forget from "../Pages/Login/Forget";
 import OnlineTest from "../Pages/OnlineTestPage/OnlineTest/OnlineTest";
 import OnlineTestPage from "../Pages/OnlineTest/OnlineTestPage";
 import QuizTimer from "../Pages/OnlineTestPage/QuizTimer/QuizTimer";
+import DashboardHome from "../Components/Dashboarrd/DashboardHome";
+import DashboardQuizCard from "../Components/Dashboarrd/DashboardQuizCard";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +52,14 @@ export const router = createBrowserRouter([
       {
         path: "/onlineTest/:id",
         element: <QuizTimer></QuizTimer>,
+      },
+      {
+        path: "/dashboard",
+        element: <DashboardHome></DashboardHome>,
+      },
+      {
+        path: "/dashboard/quiz",
+        element: <DashboardQuizCard></DashboardQuizCard>,
       },
     ],
   },
