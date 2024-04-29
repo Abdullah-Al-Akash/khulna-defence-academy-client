@@ -1,0 +1,27 @@
+[
+  {
+    "quizId": 1,
+    "quizName": "Verbal",
+    "set": "Set 1"
+  },
+  {
+    "quizId": 2,
+    "quizName": "Verbal",
+    "set": "Set 2"
+  },
+  {
+    "quizId": 3,
+    "quizName": "Verbal",
+    "set": "Set 3"
+  },
+  {
+    "quizId": 4,
+    "quizName": "Non-Verbal",
+    "set": "Set 4"
+  },
+  {
+    "quizId": 5,
+    "quizName": "Non-Verbal",
+    "set": "Set 5"
+  }
+]

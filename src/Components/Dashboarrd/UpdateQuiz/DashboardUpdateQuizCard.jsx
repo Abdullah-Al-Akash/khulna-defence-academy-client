@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import DashboardItems from "./DashboardItems";
 import { Link } from "react-router-dom";
+import DashboardItems from "../DashboardItems";
 
-const DashboardQuizCard = () => {
+const DashboardUpdateQuizCard = () => {
   const [quizSets, setQuizSets] = useState([]);
   useEffect(() => {
     fetch("/quizOption.json")
@@ -16,9 +16,9 @@ const DashboardQuizCard = () => {
       </div>
       <div class="col-span-4">
         <h3 className="text-center text-2xl p-4 font-semibold">
-          Set Your Quiz
+          Update Your Quiz
         </h3>
-        <div className="grid grid-cols-5 gap-6">
+        <div className="grid grid-cols-5 gap-6 mt-4">
           {quizSets.map((quiz) => (
             <div class="bg-black rounded-md p-4">
               <h1 class="text-xl font-semibold text-white text-center">
@@ -27,10 +27,10 @@ const DashboardQuizCard = () => {
               <p class="text-white text-center">Question{quiz.set}</p>
               <div class="text-center">
                 <Link
-                  to={`/dashboard/package/${quiz.quizId}`}
+                  to={`/dashboard/update-quiz/${quiz.quizId}`}
                   className="m-4 btn bg-yellow-500 text-[14px] text-black"
                 >
-                  Add Your Quiz
+                  Update Your Quiz
                 </Link>
               </div>
             </div>
@@ -41,4 +41,4 @@ const DashboardQuizCard = () => {
   );
 };
 
-export default DashboardQuizCard;
+export default DashboardUpdateQuizCard;

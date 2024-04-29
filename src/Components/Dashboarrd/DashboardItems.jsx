@@ -17,7 +17,15 @@ const DashboardItems = () => {
           className="font-semibold p-2 text-xl hover:text-yellow-400"
           to="/dashboard/quiz"
         >
-          Quiz
+          Set Quiz
+        </Link>
+      </div>
+      <div className="pt-2">
+        <Link
+          className="font-semibold p-2 text-xl hover:text-yellow-400"
+          to="/dashboard/update-quiz"
+        >
+          Update Quiz
         </Link>
       </div>
       <div className="pt-2">

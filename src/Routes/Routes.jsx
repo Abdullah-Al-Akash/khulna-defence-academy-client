@@ -11,6 +11,9 @@ import OnlineTestPage from "../Pages/OnlineTest/OnlineTestPage";
 import QuizTimer from "../Pages/OnlineTestPage/QuizTimer/QuizTimer";
 import DashboardHome from "../Components/Dashboarrd/DashboardHome";
 import DashboardQuizCard from "../Components/Dashboarrd/DashboardQuizCard";
+import AddQuiz from "../Components/Dashboarrd/AddQuiz";
+import DashboardUpdateQuizCard from "../Components/Dashboarrd/UpdateQuiz/DashboardUpdateQuizCard";
+import UpdateQuiz from "../Components/Dashboarrd/UpdateQuiz/UpdateQuiz";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +63,18 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/quiz",
         element: <DashboardQuizCard></DashboardQuizCard>,
+      },
+      {
+        path: "/dashboard/update-quiz",
+        element: <DashboardUpdateQuizCard></DashboardUpdateQuizCard>,
+      },
+      {
+        path: "/dashboard/package/:quizId",
+        element: <AddQuiz></AddQuiz>,
+      },
+      {
+        path: "/dashboard/update-quiz/:quizId",
+        element: <UpdateQuiz></UpdateQuiz>,
       },
     ],
   },
