@@ -24,7 +24,7 @@
   {
     "category": "Verbal",
     "id": 3,
-    "name": "Quiz Set 2",
+    "name": "Quiz Set 3",
     "totalQuiz": 6,
     "instructions": [
       "These are the instructions for Quiz Package 1.",
@@ -35,7 +35,7 @@
   {
     "category": "Verbal",
     "id": 4,
-    "name": "Quiz Set 2",
+    "name": "Quiz Set 4",
     "totalQuiz": 6,
     "instructions": [
       "These are the instructions for Quiz Package 1.",
@@ -46,7 +46,7 @@
   {
     "category": "Verbal",
     "id": 5,
-    "name": "Quiz Set 2",
+    "name": "Quiz Set 5",
     "totalQuiz": 6,
     "instructions": [
       "These are the instructions for Quiz Package 1.",
@@ -57,7 +57,7 @@
   {
     "category": "Verbal",
     "id": 6,
-    "name": "Quiz Set 2",
+    "name": "Quiz Set 6",
     "totalQuiz": 6,
     "instructions": [
       "These are the instructions for Quiz Package 1.",
@@ -68,7 +68,7 @@
   {
     "category": "Verbal",
     "id": 7,
-    "name": "Quiz Set 2",
+    "name": "Quiz Set 7",
     "totalQuiz": 6,
     "instructions": [
       "These are the instructions for Quiz Package 1.",
@@ -79,7 +79,7 @@
   {
     "category": "Verbal",
     "id": 8,
-    "name": "Quiz Set 2",
+    "name": "Quiz Set 8",
     "totalQuiz": 6,
     "instructions": [
       "These are the instructions for Quiz Package 1.",
@@ -90,7 +90,7 @@
   {
     "category": "Verbal",
     "id": 9,
-    "name": "Quiz Set 2",
+    "name": "Quiz Set 9",
     "totalQuiz": 6,
     "instructions": [
       "These are the instructions for Quiz Package 1.",
@@ -101,7 +101,7 @@
   {
     "category": "Verbal",
     "id": 10,
-    "name": "Quiz Set 2",
+    "name": "Quiz Set 10",
     "totalQuiz": 6,
     "instructions": [
       "These are the instructions for Quiz Package 1.",
@@ -110,9 +110,9 @@
     ]
   },
   {
-    "category": "Verbal",
+    "category": "Non Verbal",
     "id": 11,
-    "name": "Quiz Set 2",
+    "name": "Quiz Set 1",
     "totalQuiz": 6,
     "instructions": [
       "These are the instructions for Quiz Package 1.",
@@ -121,7 +121,7 @@
     ]
   },
   {
-    "category": "Verbal",
+    "category": "Non Verbal",
     "id": 12,
     "name": "Quiz Set 2",
     "totalQuiz": 6,
@@ -132,9 +132,9 @@
     ]
   },
   {
-    "category": "Verbal",
+    "category": "Non Verbal",
     "id": 13,
-    "name": "Quiz Set 2",
+    "name": "Quiz Set 3",
     "totalQuiz": 6,
     "instructions": [
       "These are the instructions for Quiz Package 1.",
@@ -143,9 +143,9 @@
     ]
   },
   {
-    "category": "Verbal",
+    "category": "Non Verbal",
     "id": 14,
-    "name": "Quiz Set 2",
+    "name": "Quiz Set 4",
     "totalQuiz": 6,
     "instructions": [
       "These are the instructions for Quiz Package 1.",
@@ -154,9 +154,9 @@
     ]
   },
   {
-    "category": "Verbal",
+    "category": "Non Verbal",
     "id": 15,
-    "name": "Quiz Set 2",
+    "name": "Quiz Set 5",
     "totalQuiz": 6,
     "instructions": [
       "These are the instructions for Quiz Package 1.",
