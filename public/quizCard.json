@@ -1,7 +1,8 @@
 [
   {
+    "category": "Verbal",
     "id": 1,
-    "name": "Quiz Package 1",
+    "name": "Quiz Set 1",
     "totalQuiz": 6,
     "instructions": [
       "These are the instructions for Quiz Package 1.",
@@ -10,8 +11,152 @@
     ]
   },
   {
+    "category": "Verbal",
     "id": 2,
-    "name": "Quiz Package 2",
+    "name": "Quiz Set 2",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  },
+  {
+    "category": "Verbal",
+    "id": 3,
+    "name": "Quiz Set 2",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  },
+  {
+    "category": "Verbal",
+    "id": 4,
+    "name": "Quiz Set 2",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  },
+  {
+    "category": "Verbal",
+    "id": 5,
+    "name": "Quiz Set 2",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  },
+  {
+    "category": "Verbal",
+    "id": 6,
+    "name": "Quiz Set 2",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  },
+  {
+    "category": "Verbal",
+    "id": 7,
+    "name": "Quiz Set 2",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  },
+  {
+    "category": "Verbal",
+    "id": 8,
+    "name": "Quiz Set 2",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  },
+  {
+    "category": "Verbal",
+    "id": 9,
+    "name": "Quiz Set 2",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  },
+  {
+    "category": "Verbal",
+    "id": 10,
+    "name": "Quiz Set 2",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  },
+  {
+    "category": "Verbal",
+    "id": 11,
+    "name": "Quiz Set 2",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  },
+  {
+    "category": "Verbal",
+    "id": 12,
+    "name": "Quiz Set 2",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  },
+  {
+    "category": "Verbal",
+    "id": 13,
+    "name": "Quiz Set 2",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  },
+  {
+    "category": "Verbal",
+    "id": 14,
+    "name": "Quiz Set 2",
+    "totalQuiz": 6,
+    "instructions": [
+      "These are the instructions for Quiz Package 1.",
+      "These are the instructions for Quiz Package 2.",
+      "These are the instructions for Quiz Package 3."
+    ]
+  },
+  {
+    "category": "Verbal",
+    "id": 15,
+    "name": "Quiz Set 2",
     "totalQuiz": 6,
     "instructions": [
       "These are the instructions for Quiz Package 1.",

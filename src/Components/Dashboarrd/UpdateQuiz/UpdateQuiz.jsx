@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DashboardItems from "../DashboardItems";
+import toast, { Toaster } from "react-hot-toast";
 
 const UpdateQuiz = () => {
   const { quizId } = useParams();
   const [latestQuiz, setLatesQuiz] = useState([]);
-  const [selectedValue, setSelectedValue] = useState("");
+  const [selectedValue, setSelectedValue] = useState("option1");
+  const [updateQuizId, setUpdateQuizId] = useState("");
   const handleSelectChange = (event) => {
     setSelectedValue(event.target.value); // Update the selected value when the dropdown selection changes
   };
@@ -17,6 +19,54 @@ const UpdateQuiz = () => {
         setLatesQuiz(data);
       });
   }, []);
+
+  //   Handle Update
+  const handleUpdateQuiz = (event) => {
+    event.preventDefault();
+    const cursor = event.target;
+    const quizQuestion = {
+      question: cursor.question.value,
+      options: {
+        option1: cursor.option1.value,
+        option2: cursor.option2.value,
+        option3: cursor.option3.value,
+        option4: cursor.option4.value,
+      },
+      correctOption: selectedValue,
+      explanation: cursor.explanation.value,
+    };
+    // setUpdateQuiz(quizQuestion);
+    console.log(quizQuestion);
+    handleQuiz(quizQuestion);
+
+    // Update The Quiz:
+  };
+
+  //   Update Quiz Function:
+  const handleQuiz = (quizQuestion) => {
+    fetch(
+      `http://localhost:5000/updateQuiz?quizId=${quizId}&_id=${updateQuizId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(quizQuestion),
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        } else {
+          toast.success("Successfully Updated Quiz");
+        }
+        // Handle success
+      })
+      .catch((error) => {
+        // Handle error
+        console.error("There was a problem with the PUT operation:", error);
+      });
+  };
   return (
     <div className="md:px-[84px] px-[10px] py-[30px] grid grid-cols-5 gap-4">
       <div class="col-span-1">
@@ -24,7 +74,10 @@ const UpdateQuiz = () => {
       </div>
       <div class="col-span-4 ms-12">
         {latestQuiz.map((quiz) => (
-          <form>
+          <form
+            onSubmit={handleUpdateQuiz}
+            className="bg-yellow-100 m-4 p-6 rounded-md"
+          >
             <label className="form-control w-full">
               <div className="label">
                 <span className="label-text font-bold text-xl">
@@ -32,7 +85,7 @@ const UpdateQuiz = () => {
                 </span>
               </div>
               <input
-                value={quiz?.question}
+                defaultValue={quiz.question}
                 name="question"
                 type="text"
                 placeholder="Type here"
@@ -46,7 +99,7 @@ const UpdateQuiz = () => {
                   <span className="label-text font-bold">Option1</span>
                 </div>
                 <input
-                  value={quiz?.options?.option1 || ""}
+                  defaultValue={quiz?.options?.option1 || ""}
                   name="option1"
                   type="text"
                   placeholder="Type here"
@@ -58,7 +111,7 @@ const UpdateQuiz = () => {
                   <span className="label-text font-bold">Option2</span>
                 </div>
                 <input
-                  value={quiz?.options?.option2 || ""}
+                  defaultValue={quiz?.options?.option2 || ""}
                   name="option2"
                   type="text"
                   placeholder="Type here"
@@ -70,7 +123,7 @@ const UpdateQuiz = () => {
                   <span className="label-text font-bold">Option3</span>
                 </div>
                 <input
-                  value={quiz?.options?.option3 || ""}
+                  defaultValue={quiz?.options?.option3 || ""}
                   name="option3"
                   type="text"
                   placeholder="Type here"
@@ -82,7 +135,7 @@ const UpdateQuiz = () => {
                   <span className="label-text font-bold">Option4</span>
                 </div>
                 <input
-                  value={quiz?.options?.option2 || ""}
+                  defaultValue={quiz?.options?.option4 || ""}
                   name="option4"
                   type="text"
                   placeholder="Type here"
@@ -96,9 +149,8 @@ const UpdateQuiz = () => {
                   </span>
                 </div>
                 <select
-                  value={quiz?.correctOption || ""}
-                  //   value={selectedValue}
-                  //   onChange={handleSelectChange}
+                  defaultValue={quiz?.correctOption || ""}
+                  onChange={handleSelectChange}
                   className="input input-bordered w-1/2"
                 >
                   <option value="option1">Option 1</option>
@@ -112,7 +164,7 @@ const UpdateQuiz = () => {
                   <span className="label-text font-bold">Explanation</span>
                 </div>
                 <input
-                  value={quiz?.explanation || ""}
+                  defaultValue={quiz?.explanation || ""}
                   name="explanation"
                   type="text"
                   placeholder="Type here"
@@ -122,6 +174,7 @@ const UpdateQuiz = () => {
             </div>
             <div className="flex justify-end">
               <button
+                onClick={() => setUpdateQuizId(quiz._id)}
                 type="submit"
                 className="btn bg-yellow-400 text-black font-semibold text-xl hover:bg-black hover:text-white"
               >
@@ -131,6 +184,7 @@ const UpdateQuiz = () => {
           </form>
         ))}
       </div>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };
