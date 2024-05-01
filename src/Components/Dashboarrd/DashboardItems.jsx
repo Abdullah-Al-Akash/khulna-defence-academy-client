@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const DashboardItems = () => {
   return (
-    <div className="bg-black text-white p-4 h-96">
+    <div className="bg-black text-white p-4 min-h-screen">
       <div className="pt-2">
         <Link
           className="font-semibold p-2 text-xl hover:text-yellow-400"

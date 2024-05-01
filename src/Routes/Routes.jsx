@@ -14,6 +14,7 @@ import DashboardQuizCard from "../Components/Dashboarrd/DashboardQuizCard";
 import AddQuiz from "../Components/Dashboarrd/AddQuiz";
 import DashboardUpdateQuizCard from "../Components/Dashboarrd/UpdateQuiz/DashboardUpdateQuizCard";
 import UpdateQuiz from "../Components/Dashboarrd/UpdateQuiz/UpdateQuiz";
+import DashboardUsers from "../Components/Dashboarrd/DashboardUsers/DashboardUsers";
 
 export const router = createBrowserRouter([
   {
@@ -75,6 +76,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/update-quiz/:quizId",
         element: <UpdateQuiz></UpdateQuiz>,
+      },
+      {
+        path: "/dashboard/users",
+        element: <DashboardUsers></DashboardUsers>,
       },
     ],
   },
