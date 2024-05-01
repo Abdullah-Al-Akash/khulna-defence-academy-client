@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import DashboardItems from "./DashboardItems";
+import toast, { Toaster } from "react-hot-toast";
 
 const AddQuiz = () => {
   const { quizId } = useParams();
@@ -23,6 +24,7 @@ const AddQuiz = () => {
         option2: cursor.option2.value,
         option3: cursor.option3.value,
         option4: cursor.option4.value,
+        option5: cursor.option5.value,
       },
       correctOption: selectedValue,
       explanation: cursor.explanation.value,
@@ -31,7 +33,7 @@ const AddQuiz = () => {
     // Post Quiz Question to database:
     try {
       const response = await fetch(
-        `http://localhost:5000/package?id=${quizId}`,
+        `https://khulna-defence-coaching-server.onrender.com/package?id=${quizId}`,
         {
           method: "POST",
           headers: {
@@ -45,12 +47,13 @@ const AddQuiz = () => {
         alert("Failed to submit quiz");
       }
       if (response.ok) {
-        alert("Successfully  SUbmit quiz");
+        toast.success("Successfully Added Quiz");
         cursor.question.value = "";
         cursor.option1.value = "";
         cursor.option2.value = "";
         cursor.option3.value = "";
         cursor.option4.value = "";
+        cursor.option5.value = "";
         cursor.explanation.value = "";
       }
     } catch (error) {
@@ -58,7 +61,9 @@ const AddQuiz = () => {
     }
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/package?id=${quizId}`)
+    fetch(
+      `https://khulna-defence-coaching-server.onrender.com/package?id=${quizId}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setLatesQuiz(data);
@@ -132,6 +137,17 @@ const AddQuiz = () => {
             </label>
             <label className="form-control w-full">
               <div className="label">
+                <span className="label-text font-bold">Option5</span>
+              </div>
+              <input
+                name="option5"
+                type="text"
+                placeholder="Type here"
+                className="input input-bordered w-1/2"
+              />
+            </label>
+            <label className="form-control w-full">
+              <div className="label">
                 <span className="label-text font-bold">Select Correct Ans</span>
               </div>
               <select
@@ -143,6 +159,7 @@ const AddQuiz = () => {
                 <option value="option2">Option 2</option>
                 <option value="option3">Option 3</option>
                 <option value="option4">Option 4</option>
+                <option value="option5">Option 5</option>
               </select>
             </label>
             <label className="form-control w-full">
@@ -167,6 +184,7 @@ const AddQuiz = () => {
           </div>
         </form>
       </div>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };

@@ -13,9 +13,12 @@ const UpdateQuiz = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/package?id=${quizId}`)
+    fetch(
+      `https://khulna-defence-coaching-server.onrender.com/package?id=${quizId}`
+    )
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setLatesQuiz(data);
       });
   }, []);
@@ -31,6 +34,7 @@ const UpdateQuiz = () => {
         option2: cursor.option2.value,
         option3: cursor.option3.value,
         option4: cursor.option4.value,
+        option5: cursor.option5.value,
       },
       correctOption: selectedValue,
       explanation: cursor.explanation.value,
@@ -45,7 +49,7 @@ const UpdateQuiz = () => {
   //   Update Quiz Function:
   const handleQuiz = (quizQuestion) => {
     fetch(
-      `http://localhost:5000/updateQuiz?quizId=${quizId}&_id=${updateQuizId}`,
+      `https://khulna-defence-coaching-server.onrender.com/updateQuiz?quizId=${quizId}&_id=${updateQuizId}`,
       {
         method: "PUT",
         headers: {
@@ -144,6 +148,18 @@ const UpdateQuiz = () => {
               </label>
               <label className="form-control w-full">
                 <div className="label">
+                  <span className="label-text font-bold">Option5</span>
+                </div>
+                <input
+                  defaultValue={quiz?.options?.option5 || ""}
+                  name="option5"
+                  type="text"
+                  placeholder="Type here"
+                  className="input input-bordered w-1/2"
+                />
+              </label>
+              <label className="form-control w-full">
+                <div className="label">
                   <span className="label-text font-bold">
                     Select Correct Ans
                   </span>
@@ -157,6 +173,7 @@ const UpdateQuiz = () => {
                   <option value="option2">Option 2</option>
                   <option value="option3">Option 3</option>
                   <option value="option4">Option 4</option>
+                  <option value="option5">Option 5</option>
                 </select>
               </label>
               <label className="form-control w-full">

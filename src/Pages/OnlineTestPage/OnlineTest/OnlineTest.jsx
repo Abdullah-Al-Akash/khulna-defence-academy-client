@@ -24,7 +24,7 @@ const OnlineTest = () => {
     <div className="container mx-auto my-10">
       <div className="bg-yellow-50 px-6 py-8">
         <h2 className="text-center text-3xl font-bold p-4">Verbal Quiz</h2>
-        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 ">
           {verbalQuiz.map((quizPackage, index) => (
             <div
               key={index}
