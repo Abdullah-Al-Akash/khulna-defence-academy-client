@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
-const QuizCard = ({ quizId, quizzes }) => {
+const QuizCard = ({ setStopTimer, quizId, quizzes }) => {
   console.log(quizId);
   const [displayQues, setDisplayQues] = useState(0); // Changed initial state to 0
   const [userResponses, setUserResponses] = useState([]); // State to hold user responses
@@ -10,6 +11,7 @@ const QuizCard = ({ quizId, quizzes }) => {
 
   const [correctAns, setCorrectAns] = useState([]);
   const [wrongAns, setWrongAns] = useState([]);
+  const [afterSubmit, setAfterSubmit] = useState(false);
   const { user } = useContext(AuthContext);
 
   const totalQuizzes = quizzes.length;
@@ -37,64 +39,85 @@ const QuizCard = ({ quizId, quizzes }) => {
   };
 
   const handleSubmit = () => {
-    setShowCorrectAnswers(true);
-    console.log("User responses:", userResponses);
-    const correctAns = userResponses?.filter((ans) => ans.isCorrect === true);
-    setCorrectAns(correctAns);
-    const wrongAns = userResponses?.filter((ans) => ans.isCorrect === false);
-    setWrongAns(wrongAns);
+    Swal.fire({
+      title: "Are you sure to submit  quiz?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setStopTimer(true);
+        setAfterSubmit(true);
+        setShowCorrectAnswers(true);
+        console.log("User responses:", userResponses);
+        const correctAns = userResponses?.filter(
+          (ans) => ans.isCorrect === true
+        );
+        setCorrectAns(correctAns);
+        const wrongAns = userResponses?.filter(
+          (ans) => ans.isCorrect === false
+        );
+        setWrongAns(wrongAns);
+
+        const submittedAns = {
+          email: user?.email,
+          correctAns: correctAns?.length,
+          wrongAns: wrongAns?.length,
+          notAns: totalQuizzes - correctAns?.length - wrongAns?.length,
+          quizSet:
+            quizId == 1
+              ? " Verbal Set-1"
+              : quizId == 2
+              ? " Verbal Set-2"
+              : quizId == 3
+              ? " Verbal Set-3"
+              : quizId == 4
+              ? " Verbal Set-4"
+              : quizId == 5
+              ? " Verbal Set-5"
+              : quizId == 6
+              ? " Verbal Set-6"
+              : quizId == 7
+              ? " Verbal Set-7"
+              : quizId == 8
+              ? " Verbal Set-8"
+              : quizId == 9
+              ? " Verbal Set-9"
+              : quizId == 10
+              ? " Verbal Set-10"
+              : quizId == 11
+              ? " Non-Verbal Set-1"
+              : quizId == 12
+              ? " Non-Verbal Set-2"
+              : quizId == 13
+              ? " Non-Verbal Set-3"
+              : quizId == 14
+              ? " Non-Verbal Set-4"
+              : quizId == 15
+              ? " Non-Verbal Set-5"
+              : "",
+        };
+        fetch(
+          "https://khulna-defence-coaching-server.onrender.com/submit-ans",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(submittedAns),
+          }
+        );
+      }
+    });
 
     // Post Ans
-    const submittedAns = {
-      email: user?.email,
-      correctAns: correctAns?.length,
-      wrongAns: wrongAns?.length,
-      notAns: totalQuizzes - correctAns?.length - wrongAns?.length,
-      quizSet:
-        quizId == 1
-          ? " Verbal Set-1"
-          : quizId == 2
-          ? " Verbal Set-2"
-          : quizId == 3
-          ? " Verbal Set-3"
-          : quizId == 4
-          ? " Verbal Set-4"
-          : quizId == 5
-          ? " Verbal Set-5"
-          : quizId == 6
-          ? " Verbal Set-6"
-          : quizId == 7
-          ? " Verbal Set-7"
-          : quizId == 8
-          ? " Verbal Set-8"
-          : quizId == 9
-          ? " Verbal Set-9"
-          : quizId == 10
-          ? " Verbal Set-10"
-          : quizId == 11
-          ? " Non-Verbal Set-1"
-          : quizId == 12
-          ? " Non-Verbal Set-2"
-          : quizId == 13
-          ? " Non-Verbal Set-3"
-          : quizId == 14
-          ? " Non-Verbal Set-4"
-          : quizId == 15
-          ? " Non-Verbal Set-5"
-          : "",
-    };
-
-    fetch("https://khulna-defence-coaching-server.onrender.com/submit-ans", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(submittedAns),
-    });
   };
 
   return (
-    <div className="pb-5 mx-auto md:w-1/2">
+    <div className="pb-5 mx-auto">
       {showCorrectAnswers && (
         <div className="flex justify-center">
           <div>
@@ -110,6 +133,7 @@ const QuizCard = ({ quizId, quizzes }) => {
           </div>
         </div>
       )}
+      {/* All Quiz Button */}
       <div>
         {quizzes.map((quiz, index) => (
           <button
@@ -133,7 +157,7 @@ const QuizCard = ({ quizId, quizzes }) => {
           </button>
         ))}
       </div>
-      <div className="mt-5 mb-5  p-2">
+      <div className="mt-5 mb-5 p-6 bg-yellow-50 shadow-2xl rounded-md md:w-2/3 mx-auto border">
         <p className="text-xl font-bold mb-4">
           {displayQues + 1}. {quizzes[displayQues]?.question}
         </p>
@@ -145,6 +169,7 @@ const QuizCard = ({ quizId, quizzes }) => {
                 ([optionKey, optionValue]) => (
                   <label key={optionKey} className="flex items-center mt-2">
                     <input
+                      disabled={afterSubmit === true ? true : false}
                       type="checkbox"
                       onChange={() => handleOptionSelect(optionKey)}
                       checked={
@@ -199,8 +224,14 @@ const QuizCard = ({ quizId, quizzes }) => {
           </button>
 
           <button
+            disabled={afterSubmit === true ? true : false}
             onClick={handleSubmit}
-            className="mt-4 bg-yellow-400 hover:bg-black hover:text-yellow-400 text-black font-bold py-2 px-4 rounded"
+            className={`mt-4    
+             text-2xl font-bold py-2 px-4 rounded ${
+               afterSubmit === true
+                 ? "bg-gray-400"
+                 : "bg-black hover:bg-yellow-400 hover:text-black text-yellow-400"
+             }`}
           >
             Submit
           </button>
