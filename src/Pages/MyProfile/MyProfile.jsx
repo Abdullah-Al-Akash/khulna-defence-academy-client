@@ -4,6 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 const MyProfile = () => {
   const { user } = useContext(AuthContext);
   const [result, setResult] = useState([]);
+  const [liveUser, setLiveUser] = useState({});
   useEffect(() => {
     fetch(
       `https://khulna-defence-coaching-server.onrender.com/submit-ans?email=${user?.email}`

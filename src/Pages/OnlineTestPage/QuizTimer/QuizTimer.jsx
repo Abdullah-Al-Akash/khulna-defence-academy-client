@@ -10,6 +10,7 @@ const QuizTimer = () => {
   const [testStarted, setTestStarted] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [quizzes, setQuizzes] = useState([]);
+  const [stopTimer, setStopTimer] = useState(false);
   const url = `https://khulna-defence-coaching-server.onrender.com/package?id=${id}`;
 
   useEffect(() => {
@@ -45,7 +46,7 @@ const QuizTimer = () => {
   const handleTimeChange = (e) => {
     const value = parseInt(e.target.value);
     setSelectedTime(value);
-    if (value < 1 || value > 100) {
+    if (value < 1 || value > 101) {
       setShowModal(true);
     }
   };
@@ -98,9 +99,13 @@ const QuizTimer = () => {
           testStarted ? "text-xl font-medium flex justify-center" : "hidden"
         }
       >
-        <p>
-          Time left: {minutesLeft}m {secondsLeft}s
-        </p>
+        {!stopTimer ? (
+          <p>
+            Time left: {minutesLeft}m {secondsLeft}s
+          </p>
+        ) : (
+          ""
+        )}
       </div>
       {!testStarted && (
         <div className="flex justify-center">
@@ -112,7 +117,13 @@ const QuizTimer = () => {
           </button>
         </div>
       )}
-      {testStarted && <QuizCard quizId={id} quizzes={quizzes}></QuizCard>}
+      {testStarted && (
+        <QuizCard
+          setStopTimer={setStopTimer}
+          quizId={id}
+          quizzes={quizzes}
+        ></QuizCard>
+      )}
     </div>
   );
 };
