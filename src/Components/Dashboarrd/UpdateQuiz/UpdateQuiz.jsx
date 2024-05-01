@@ -13,7 +13,9 @@ const UpdateQuiz = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/package?id=${quizId}`)
+    fetch(
+      `https://khulna-defence-coaching-server.onrender.com/package?id=${quizId}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setLatesQuiz(data);
@@ -45,7 +47,7 @@ const UpdateQuiz = () => {
   //   Update Quiz Function:
   const handleQuiz = (quizQuestion) => {
     fetch(
-      `http://localhost:5000/updateQuiz?quizId=${quizId}&_id=${updateQuizId}`,
+      `https://khulna-defence-coaching-server.onrender.com/updateQuiz?quizId=${quizId}&_id=${updateQuizId}`,
       {
         method: "PUT",
         headers: {

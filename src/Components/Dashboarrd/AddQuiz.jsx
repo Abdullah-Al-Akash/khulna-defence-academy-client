@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import DashboardItems from "./DashboardItems";
+import toast, { Toaster } from "react-hot-toast";
 
 const AddQuiz = () => {
   const { quizId } = useParams();
@@ -31,7 +32,7 @@ const AddQuiz = () => {
     // Post Quiz Question to database:
     try {
       const response = await fetch(
-        `http://localhost:5000/package?id=${quizId}`,
+        `https://khulna-defence-coaching-server.onrender.com/package?id=${quizId}`,
         {
           method: "POST",
           headers: {
@@ -45,7 +46,7 @@ const AddQuiz = () => {
         alert("Failed to submit quiz");
       }
       if (response.ok) {
-        alert("Successfully  SUbmit quiz");
+        toast.success("Successfully Added Quiz");
         cursor.question.value = "";
         cursor.option1.value = "";
         cursor.option2.value = "";
@@ -58,7 +59,9 @@ const AddQuiz = () => {
     }
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/package?id=${quizId}`)
+    fetch(
+      `https://khulna-defence-coaching-server.onrender.com/package?id=${quizId}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setLatesQuiz(data);
@@ -167,6 +170,7 @@ const AddQuiz = () => {
           </div>
         </form>
       </div>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };

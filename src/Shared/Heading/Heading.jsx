@@ -70,12 +70,38 @@ const Heading = () => {
           <div className="w-1/8">
             {user ? (
               <>
-                <button
-                  onClick={handleUserLogOut}
-                  className="btn text-2xl bg-yellow-400 text-black font-semibold hover:bg-black hover:text-yellow-400"
-                >
-                  লগ আউট
-                </button>
+                <div className="dropdown dropdown-end">
+                  <div tabIndex={0} role="button" className="m-1">
+                    <div className="text-center">
+                      <div className="avatar online">
+                        <div className="w-14 rounded-full">
+                          <img src="https://media.licdn.com/dms/image/D5603AQFGDobIsN6JfQ/profile-displayphoto-shrink_800_800/0/1684397636582?e=2147483647&v=beta&t=4zuyyzeS3faoqw-kSjgbeS0V7GHbNm0RoWJrPHZaXtQ" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <Link
+                        to="/profile"
+                        className=" text-black font-semibold hover:bg-black hover:text-yellow-400"
+                      >
+                        My Profile
+                      </Link>
+                    </li>
+                    <li className="mt-4">
+                      <button
+                        onClick={handleUserLogOut}
+                        className=" text-black font-semibold hover:bg-black hover:text-yellow-400"
+                      >
+                        লগ আউট
+                      </button>
+                    </li>
+                  </ul>
+                </div>
               </>
             ) : (
               <>
@@ -103,11 +129,50 @@ const Heading = () => {
             </h2>
           </div>
           <div className="">
-            <Link to="login">
-              <button className="btn bg-yellow-400 text-black font-semibold hover:bg-black hover:text-yellow-400">
-                লগিন করুন
-              </button>
-            </Link>
+            {user ? (
+              <>
+                <div className="dropdown dropdown-end">
+                  <div tabIndex={0} role="button" className="m-1">
+                    <div className="text-center">
+                      <div className="avatar online">
+                        <div className="w-14 rounded-full">
+                          <img src="https://media.licdn.com/dms/image/D5603AQFGDobIsN6JfQ/profile-displayphoto-shrink_800_800/0/1684397636582?e=2147483647&v=beta&t=4zuyyzeS3faoqw-kSjgbeS0V7GHbNm0RoWJrPHZaXtQ" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <Link
+                        to="/profile"
+                        className=" text-black font-semibold hover:bg-black hover:text-yellow-400"
+                      >
+                        My Profile
+                      </Link>
+                    </li>
+                    <li className="mt-4">
+                      <button
+                        onClick={handleUserLogOut}
+                        className=" text-black font-semibold hover:bg-black hover:text-yellow-400"
+                      >
+                        লগ আউট
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </>
+            ) : (
+              <>
+                <Link to="login">
+                  <button className="btn text-2xl bg-yellow-400 text-black font-semibold hover:bg-black hover:text-yellow-400">
+                    লগিন করুন
+                  </button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

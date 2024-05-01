@@ -33,20 +33,20 @@ const Navbar = () => {
           আমাদের বইসমূহ
         </a>
       </li>
-      <li>
+      {/* <li>
         <Link
           to="/test"
           className="text-sm font-bold hover:text-yellow-400 hover:bg-white"
         >
           অনলাইন টেস্ট
         </Link>
-      </li>
+      </li> */}
       <li>
         <Link
           to="/onlineTest"
           className="text-sm font-bold hover:text-yellow-400 hover:bg-white"
         >
-          অনলাইন টেস্ট 2
+          অনলাইন টেস্ট
         </Link>
       </li>
       <li>

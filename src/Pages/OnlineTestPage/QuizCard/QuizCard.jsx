@@ -84,7 +84,7 @@ const QuizCard = ({ quizId, quizzes }) => {
           : "",
     };
 
-    fetch("http://localhost:5000/submit-ans", {
+    fetch("https://khulna-defence-coaching-server.onrender.com/submit-ans", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -110,6 +110,29 @@ const QuizCard = ({ quizId, quizzes }) => {
           </div>
         </div>
       )}
+      <div>
+        {quizzes.map((quiz, index) => (
+          <button
+            key={index}
+            onClick={() => setDisplayQues(index)}
+            className={`mt-4 ms-2 ${
+              index === displayQues
+                ? userResponses[index] && showCorrectAnswers
+                  ? userResponses[index].isCorrect
+                    ? "bg-green-500"
+                    : "bg-red-500"
+                  : "bg-yellow-500"
+                : userResponses[index] && showCorrectAnswers
+                ? userResponses[index].isCorrect
+                  ? "bg-green-500 hover:bg-green-700"
+                  : "bg-red-500 hover:bg-red-700"
+                : "bg-gray-200 hover:bg-gray-300"
+            }  text-black font-bold py-2 px-4 rounded`}
+          >
+            {quiz.quizNumber}
+          </button>
+        ))}
+      </div>
       <div className="mt-5 mb-5  p-2">
         <p className="text-xl font-bold mb-4">
           {displayQues + 1}. {quizzes[displayQues]?.question}
@@ -194,30 +217,6 @@ const QuizCard = ({ quizId, quizzes }) => {
             Next
           </button>
         </div>
-      </div>
-
-      <div>
-        {quizzes.map((quiz, index) => (
-          <button
-            key={index}
-            onClick={() => setDisplayQues(index)}
-            className={`mt-4 ms-2 ${
-              index === displayQues
-                ? userResponses[index] && showCorrectAnswers
-                  ? userResponses[index].isCorrect
-                    ? "bg-green-500"
-                    : "bg-red-500"
-                  : "bg-yellow-500"
-                : userResponses[index] && showCorrectAnswers
-                ? userResponses[index].isCorrect
-                  ? "bg-green-500 hover:bg-green-700"
-                  : "bg-red-500 hover:bg-red-700"
-                : "bg-gray-200 hover:bg-gray-300"
-            }  text-black font-bold py-2 px-4 rounded`}
-          >
-            {quiz.quizNumber}
-          </button>
-        ))}
       </div>
     </div>
   );

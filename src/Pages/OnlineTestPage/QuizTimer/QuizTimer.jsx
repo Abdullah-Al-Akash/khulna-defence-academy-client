@@ -10,7 +10,7 @@ const QuizTimer = () => {
   const [testStarted, setTestStarted] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [quizzes, setQuizzes] = useState([]);
-  const url = `http://localhost:5000/package?id=${id}`;
+  const url = `https://khulna-defence-coaching-server.onrender.com/package?id=${id}`;
 
   useEffect(() => {
     fetch(url)
@@ -78,7 +78,7 @@ const QuizTimer = () => {
         </dialog>
       )}
       {!testStarted && (
-        <div className="mb-4 ">
+        <div className="mb-4 max-w-md mx-auto">
           <label htmlFor="timeInput" className="block mb-2 text-lg font-medium">
             Set Time (minutes):
           </label>
@@ -103,12 +103,14 @@ const QuizTimer = () => {
         </p>
       </div>
       {!testStarted && (
-        <button
-          className="mt-4 bg-yellow-400 hover:bg-black hover:text-yellow-400 text-black font-bold py-2 px-4 rounded"
-          onClick={handleStart}
-        >
-          Start Online Test
-        </button>
+        <div className="flex justify-center">
+          <button
+            className="mt-4 bg-yellow-400 hover:bg-black hover:text-yellow-400 text-black font-bold py-2 px-4 rounded"
+            onClick={handleStart}
+          >
+            Start Online Test
+          </button>
+        </div>
       )}
       {testStarted && <QuizCard quizId={id} quizzes={quizzes}></QuizCard>}
     </div>
