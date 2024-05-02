@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import QuizCard from "../QuizCard/QuizCard";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 const QuizTimer = () => {
   const { id } = useParams();
@@ -18,7 +19,7 @@ const QuizTimer = () => {
       .then((res) => res.json())
       .then((data) => setQuizzes(data))
       .catch((error) => console.error("Error fetching quiz packages:", error));
-  }, []);
+  }, [url]);
 
   // console.log(quizzes);
 
@@ -63,13 +64,18 @@ const QuizTimer = () => {
 
   return (
     <div className="container mx-auto mt-10  min-h-[350px]">
+      <div>
+        {/* Back button */}
+        <Link to="/onlineTest" className="inline-block mb-4 text-blue-500">
+          <FaArrowLeft className="inline mr-1" />
+          Back
+        </Link>
+      </div>
       <h2 className="text-3xl text-center font-bold mb-6">Online Test</h2>
       {showModal && (
         <dialog id="my_modal_1" className="modal">
           <div className="modal-box">
-            <p className="py-4">
-              Please enter a time value between 1 minute and 100 minutes.
-            </p>
+            <p className="py-4">Please enter a time value between 1 minute and 100 minutes.</p>
             <div className="modal-action">
               <form method="dialog">
                 <button className="btn">Close</button>
@@ -94,11 +100,7 @@ const QuizTimer = () => {
           />
         </div>
       )}
-      <div
-        className={
-          testStarted ? "text-xl font-medium flex justify-center" : "hidden"
-        }
-      >
+      <div className={testStarted ? "text-xl font-medium flex justify-center" : "hidden"}>
         {!stopTimer ? (
           <p>
             Time left: {minutesLeft}m {secondsLeft}s
@@ -117,13 +119,7 @@ const QuizTimer = () => {
           </button>
         </div>
       )}
-      {testStarted && (
-        <QuizCard
-          setStopTimer={setStopTimer}
-          quizId={id}
-          quizzes={quizzes}
-        ></QuizCard>
-      )}
+      {testStarted && <QuizCard setStopTimer={setStopTimer} quizId={id} quizzes={quizzes}></QuizCard>}
     </div>
   );
 };
