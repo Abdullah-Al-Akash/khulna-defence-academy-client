@@ -74,8 +74,8 @@ const Heading = () => {
                   <div tabIndex={0} role="button" className="m-1">
                     <div className="text-center">
                       <div className="avatar online">
-                        <div className="w-14 rounded-full">
-                          <img src="https://media.licdn.com/dms/image/D5603AQFGDobIsN6JfQ/profile-displayphoto-shrink_800_800/0/1684397636582?e=2147483647&v=beta&t=4zuyyzeS3faoqw-kSjgbeS0V7GHbNm0RoWJrPHZaXtQ" />
+                        <div className="w-14 rounded-full border-4 shadow-xl border-black">
+                          <img src="https://cdn5.vectorstock.com/i/1000x1000/55/19/modern-army-soldier-icon-simple-style-vector-10885519.jpg" />
                         </div>
                       </div>
                     </div>
@@ -135,8 +135,8 @@ const Heading = () => {
                   <div tabIndex={0} role="button" className="m-1">
                     <div className="text-center">
                       <div className="avatar online">
-                        <div className="w-14 rounded-full">
-                          <img src="https://media.licdn.com/dms/image/D5603AQFGDobIsN6JfQ/profile-displayphoto-shrink_800_800/0/1684397636582?e=2147483647&v=beta&t=4zuyyzeS3faoqw-kSjgbeS0V7GHbNm0RoWJrPHZaXtQ" />
+                        <div className="w-14 rounded-full border-4 shadow-xl border-black">
+                          <img src="https://cdn5.vectorstock.com/i/1000x1000/55/19/modern-army-soldier-icon-simple-style-vector-10885519.jpg" />
                         </div>
                       </div>
                     </div>

@@ -13,22 +13,31 @@ const MyProfile = () => {
       .then((data) => {
         setResult(data);
       });
-  }, []);
+  }, [result]);
+  useEffect(() => {
+    fetch(
+      `https://khulna-defence-coaching-server.onrender.com/singleUser?email=${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setLiveUser(data);
+      });
+  }, [user]);
 
   return (
     <div className="min-h-screen">
       <div className="md:flex items-center justify-center">
         <div className="text-center">
           <div className="avatar online">
-            <div className="w-24 rounded-full">
-              <img src="https://media.licdn.com/dms/image/D5603AQFGDobIsN6JfQ/profile-displayphoto-shrink_800_800/0/1684397636582?e=2147483647&v=beta&t=4zuyyzeS3faoqw-kSjgbeS0V7GHbNm0RoWJrPHZaXtQ" />
+            <div className="w-24 rounded-full border-4 border-black">
+              <img src="https://cdn5.vectorstock.com/i/1000x1000/55/19/modern-army-soldier-icon-simple-style-vector-10885519.jpg" />
             </div>
           </div>
         </div>
         <div className="md:ms-8 md:text-start text-center">
-          <h3 className="font-bold text-xl"> Abdullah Al Akash</h3>
-          <h3 className="">aabdullahalakash@gmail.com</h3>
-          <h3 className="">01859096600</h3>
+          <h3 className="font-bold text-xl"> {liveUser?.displayName}</h3>
+          <h3 className="">{liveUser?.email}</h3>
+          <h3 className="">{liveUser?.mobileNumber}</h3>
         </div>
       </div>
       <div className="mt-[30px]">
