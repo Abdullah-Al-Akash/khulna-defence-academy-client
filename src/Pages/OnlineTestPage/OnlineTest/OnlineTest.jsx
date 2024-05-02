@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
 
 const OnlineTest = () => {
+  const { user } = useContext(AuthContext);
   const [verbalQuiz, setVerbalQuiz] = useState([]);
   const [nonVerbalQuiz, setNonVerbalQuiz] = useState([]);
 
@@ -19,6 +21,22 @@ const OnlineTest = () => {
       })
       .catch((error) => console.error("Error fetching quiz packages:", error));
   }, []);
+
+  const requestForAccess = (packageName, category) => {
+    const requestedPackage = {
+      email: user?.email,
+      name: packageName,
+      category: category,
+      active: false,
+    };
+    fetch("http://localhost:5000/reuestQuiz", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestedPackage),
+    });
+  };
 
   return (
     <div className="container mx-auto my-10">
@@ -47,9 +65,14 @@ const OnlineTest = () => {
                 </ul>
               </div>
               <div className="flex justify-between">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold p-2 rounded mr-2">
+                {/* <button
+                  onClick={() =>
+                    requestForAccess(quizPackage?.name, quizPackage?.category)
+                  }
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-semibold p-2 rounded mr-2"
+                >
                   Request for Access
-                </button>
+                </button> */}
                 <Link
                   to={`/onlineTest/${quizPackage.id}`}
                   className="bg-green-500 hover:bg-green-700 text-white font-semibold p-2 rounded"
@@ -89,9 +112,9 @@ const OnlineTest = () => {
                 </ul>
               </div>
               <div className="flex justify-between">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold p-2 rounded mr-2">
+                {/* <button className="bg-blue-500 hover:bg-blue-700 text-white font-semibold p-2 rounded mr-2">
                   Request for Access
-                </button>
+                </button> */}
                 <Link
                   to={`/onlineTest/${quizPackage.id}`}
                   className="bg-green-500 hover:bg-green-700 text-white font-semibold p-2 rounded"
