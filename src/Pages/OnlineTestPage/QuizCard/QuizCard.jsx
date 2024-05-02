@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
-const QuizCard = ({ setStopTimer, quizId, quizzes }) => {
+const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
   const [displayQues, setDisplayQues] = useState(0); // Changed initial state to 0
   const [userResponses, setUserResponses] = useState([]); // State to hold user responses
   const [showCorrectAnswers, setShowCorrectAnswers] = useState(false);
@@ -12,6 +12,14 @@ const QuizCard = ({ setStopTimer, quizId, quizzes }) => {
   const [afterSubmit, setAfterSubmit] = useState(false);
   const [answeredQuiz, setAnsweredQuiz] = useState([]);
   const { user } = useContext(AuthContext);
+
+  console.log(stopTimer);
+
+  useEffect(() => {
+    if (stopTimer) {
+      handleSubmit();
+    }
+  }, [stopTimer]); // This effect runs when stopTimer changes
 
   const totalQuizzes = quizzes.length;
 
@@ -44,74 +52,127 @@ const QuizCard = ({ setStopTimer, quizId, quizzes }) => {
   };
 
   const handleSubmit = () => {
-    Swal.fire({
-      title: "Are you sure to submit  quiz?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes",
-      cancelButtonText: "No",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        setStopTimer(true);
-        setAfterSubmit(true);
-        setShowCorrectAnswers(true);
-        console.log("User responses:", userResponses);
-        const correctAns = userResponses?.filter((ans) => ans.isCorrect === true);
-        setCorrectAns(correctAns);
-        const wrongAns = userResponses?.filter((ans) => ans.isCorrect === false);
-        setWrongAns(wrongAns);
+    if (stopTimer) {
+      setStopTimer(true);
+      setAfterSubmit(true);
+      setShowCorrectAnswers(true);
+      const correctAns = userResponses?.filter((ans) => ans?.isCorrect === true); // Null check added here
+      setCorrectAns(correctAns);
+      const wrongAns = userResponses?.filter((ans) => ans?.isCorrect === false); // Null check added here
+      setWrongAns(wrongAns);
 
-        const submittedAns = {
-          email: user?.email,
-          correctAns: correctAns?.length,
-          wrongAns: wrongAns?.length,
-          notAns: totalQuizzes - correctAns?.length - wrongAns?.length,
-          quizSet:
-            quizId == 1
-              ? " Verbal Set-1"
-              : quizId == 2
-              ? " Verbal Set-2"
-              : quizId == 3
-              ? " Verbal Set-3"
-              : quizId == 4
-              ? " Verbal Set-4"
-              : quizId == 5
-              ? " Verbal Set-5"
-              : quizId == 6
-              ? " Verbal Set-6"
-              : quizId == 7
-              ? " Verbal Set-7"
-              : quizId == 8
-              ? " Verbal Set-8"
-              : quizId == 9
-              ? " Verbal Set-9"
-              : quizId == 10
-              ? " Verbal Set-10"
-              : quizId == 11
-              ? " Non-Verbal Set-1"
-              : quizId == 12
-              ? " Non-Verbal Set-2"
-              : quizId == 13
-              ? " Non-Verbal Set-3"
-              : quizId == 14
-              ? " Non-Verbal Set-4"
-              : quizId == 15
-              ? " Non-Verbal Set-5"
-              : "",
-        };
-        fetch("https://khulna-defence-coaching-server.onrender.com/submit-ans", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(submittedAns),
-        });
-      }
-    });
+      const submittedAns = {
+        email: user?.email,
+        correctAns: correctAns?.length,
+        wrongAns: wrongAns?.length,
+        notAns: totalQuizzes - correctAns?.length - wrongAns?.length,
+        quizSet:
+          quizId == 1
+            ? " Verbal Set-1"
+            : quizId == 2
+            ? " Verbal Set-2"
+            : quizId == 3
+            ? " Verbal Set-3"
+            : quizId == 4
+            ? " Verbal Set-4"
+            : quizId == 5
+            ? " Verbal Set-5"
+            : quizId == 6
+            ? " Verbal Set-6"
+            : quizId == 7
+            ? " Verbal Set-7"
+            : quizId == 8
+            ? " Verbal Set-8"
+            : quizId == 9
+            ? " Verbal Set-9"
+            : quizId == 10
+            ? " Verbal Set-10"
+            : quizId == 11
+            ? " Non-Verbal Set-1"
+            : quizId == 12
+            ? " Non-Verbal Set-2"
+            : quizId == 13
+            ? " Non-Verbal Set-3"
+            : quizId == 14
+            ? " Non-Verbal Set-4"
+            : quizId == 15
+            ? " Non-Verbal Set-5"
+            : "",
+      };
+      fetch("https://khulna-defence-coaching-server.onrender.com/submit-ans", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submittedAns),
+      });
+    } else {
+      Swal.fire({
+        title: "Are you sure to submit the quiz?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes",
+        cancelButtonText: "No",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          setStopTimer(true);
+          setAfterSubmit(true);
+          setShowCorrectAnswers(true);
+          const correctAns = userResponses?.filter((ans) => ans?.isCorrect === true);
+          setCorrectAns(correctAns);
+          const wrongAns = userResponses?.filter((ans) => ans?.isCorrect === false);
+          setWrongAns(wrongAns);
 
-    // Post Ans
+          const submittedAns = {
+            email: user?.email,
+            correctAns: correctAns?.length,
+            wrongAns: wrongAns?.length,
+            notAns: totalQuizzes - correctAns?.length - wrongAns?.length,
+            quizSet:
+              quizId == 1
+                ? " Verbal Set-1"
+                : quizId == 2
+                ? " Verbal Set-2"
+                : quizId == 3
+                ? " Verbal Set-3"
+                : quizId == 4
+                ? " Verbal Set-4"
+                : quizId == 5
+                ? " Verbal Set-5"
+                : quizId == 6
+                ? " Verbal Set-6"
+                : quizId == 7
+                ? " Verbal Set-7"
+                : quizId == 8
+                ? " Verbal Set-8"
+                : quizId == 9
+                ? " Verbal Set-9"
+                : quizId == 10
+                ? " Verbal Set-10"
+                : quizId == 11
+                ? " Non-Verbal Set-1"
+                : quizId == 12
+                ? " Non-Verbal Set-2"
+                : quizId == 13
+                ? " Non-Verbal Set-3"
+                : quizId == 14
+                ? " Non-Verbal Set-4"
+                : quizId == 15
+                ? " Non-Verbal Set-5"
+                : "",
+          };
+          fetch("https://khulna-defence-coaching-server.onrender.com/submit-ans", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(submittedAns),
+          });
+        }
+      });
+    }
   };
 
   return (
