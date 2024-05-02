@@ -37,6 +37,7 @@ const QuizTimer = () => {
 
       if (remainingSeconds <= 0) {
         clearInterval(timerInterval);
+        setStopTimer(true)
         console.log("Countdown completed!");
       } else {
         remainingSeconds--;
@@ -119,7 +120,7 @@ const QuizTimer = () => {
           </button>
         </div>
       )}
-      {testStarted && <QuizCard setStopTimer={setStopTimer} quizId={id} quizzes={quizzes}></QuizCard>}
+      {testStarted && <QuizCard setStopTimer={setStopTimer} stopTimer={stopTimer} quizId={id} quizzes={quizzes}></QuizCard>}
     </div>
   );
 };
