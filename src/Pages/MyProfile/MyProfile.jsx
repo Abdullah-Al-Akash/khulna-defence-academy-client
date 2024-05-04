@@ -6,18 +6,14 @@ const MyProfile = () => {
   const [result, setResult] = useState([]);
   const [liveUser, setLiveUser] = useState({});
   useEffect(() => {
-    fetch(
-      `https://khulna-defence-coaching-server.onrender.com/submit-ans?email=${user?.email}`
-    )
+    fetch(`http://localhost:5000/submit-ans?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setResult(data);
       });
   }, [result]);
   useEffect(() => {
-    fetch(
-      `https://khulna-defence-coaching-server.onrender.com/singleUser?email=${user?.email}`
-    )
+    fetch(`http://localhost:5000/singleUser?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setLiveUser(data);

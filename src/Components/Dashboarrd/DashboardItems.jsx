@@ -36,6 +36,14 @@ const DashboardItems = () => {
           Users
         </Link>
       </div>
+      <div className="pt-2">
+        <Link
+          className="font-semibold p-2 text-xl hover:text-yellow-400"
+          to="/dashboard/notice"
+        >
+          Notice Board
+        </Link>
+      </div>
     </div>
   );
 };

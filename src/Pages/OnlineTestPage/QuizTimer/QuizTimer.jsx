@@ -12,7 +12,7 @@ const QuizTimer = () => {
   const [showModal, setShowModal] = useState(false);
   const [quizzes, setQuizzes] = useState([]);
   const [stopTimer, setStopTimer] = useState(false);
-  const url = `https://khulna-defence-coaching-server.onrender.com/package?id=${id}`;
+  const url = `http://localhost:5000/package?id=${id}`;
 
   useEffect(() => {
     fetch(url)
@@ -22,6 +22,38 @@ const QuizTimer = () => {
   }, [url]);
 
   // console.log(quizzes);
+  const currentSet =
+    id == 1
+      ? " Verbal Set-1"
+      : id == 2
+      ? " Verbal Set-2"
+      : id == 3
+      ? " Verbal Set-3"
+      : id == 4
+      ? " Verbal Set-4"
+      : id == 5
+      ? " Verbal Set-5"
+      : id == 6
+      ? " Verbal Set-6"
+      : id == 7
+      ? " Verbal Set-7"
+      : id == 8
+      ? " Verbal Set-8"
+      : id == 9
+      ? " Verbal Set-9"
+      : id == 10
+      ? " Verbal Set-10"
+      : id == 11
+      ? " Non-Verbal Set-1"
+      : id == 12
+      ? " Non-Verbal Set-2"
+      : id == 13
+      ? " Non-Verbal Set-3"
+      : id == 14
+      ? " Non-Verbal Set-4"
+      : id == 15
+      ? " Non-Verbal Set-5"
+      : "";
 
   let timerInterval;
 
@@ -37,7 +69,7 @@ const QuizTimer = () => {
 
       if (remainingSeconds <= 0) {
         clearInterval(timerInterval);
-        setStopTimer(true)
+        setStopTimer(true);
         console.log("Countdown completed!");
       } else {
         remainingSeconds--;
@@ -72,11 +104,13 @@ const QuizTimer = () => {
           Back
         </Link>
       </div>
-      <h2 className="text-3xl text-center font-bold mb-6">Online Test</h2>
+      <h2 className="text-3xl text-center font-bold mb-6">{currentSet}</h2>
       {showModal && (
         <dialog id="my_modal_1" className="modal">
           <div className="modal-box">
-            <p className="py-4">Please enter a time value between 1 minute and 100 minutes.</p>
+            <p className="py-4">
+              Please enter a time value between 1 minute and 100 minutes.
+            </p>
             <div className="modal-action">
               <form method="dialog">
                 <button className="btn">Close</button>
@@ -101,7 +135,11 @@ const QuizTimer = () => {
           />
         </div>
       )}
-      <div className={testStarted ? "text-xl font-medium flex justify-center" : "hidden"}>
+      <div
+        className={
+          testStarted ? "text-xl font-medium flex justify-center" : "hidden"
+        }
+      >
         {!stopTimer ? (
           <p>
             Time left: {minutesLeft}m {secondsLeft}s
@@ -116,11 +154,18 @@ const QuizTimer = () => {
             className="mt-4 bg-yellow-400 hover:bg-black hover:text-yellow-400 text-black font-bold py-2 px-4 rounded"
             onClick={handleStart}
           >
-            Start Online Test
+            Start Test
           </button>
         </div>
       )}
-      {testStarted && <QuizCard setStopTimer={setStopTimer} stopTimer={stopTimer} quizId={id} quizzes={quizzes}></QuizCard>}
+      {testStarted && (
+        <QuizCard
+          setStopTimer={setStopTimer}
+          stopTimer={stopTimer}
+          quizId={id}
+          quizzes={quizzes}
+        ></QuizCard>
+      )}
     </div>
   );
 };

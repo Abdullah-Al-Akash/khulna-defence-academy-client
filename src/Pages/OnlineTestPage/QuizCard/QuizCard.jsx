@@ -15,6 +15,8 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
 
   console.log(stopTimer);
 
+  // Set Quiz:
+
   useEffect(() => {
     if (stopTimer) {
       handleSubmit();
@@ -56,7 +58,9 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
       setStopTimer(true);
       setAfterSubmit(true);
       setShowCorrectAnswers(true);
-      const correctAns = userResponses?.filter((ans) => ans?.isCorrect === true); // Null check added here
+      const correctAns = userResponses?.filter(
+        (ans) => ans?.isCorrect === true
+      ); // Null check added here
       setCorrectAns(correctAns);
       const wrongAns = userResponses?.filter((ans) => ans?.isCorrect === false); // Null check added here
       setWrongAns(wrongAns);
@@ -99,7 +103,7 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
             ? " Non-Verbal Set-5"
             : "",
       };
-      fetch("https://khulna-defence-coaching-server.onrender.com/submit-ans", {
+      fetch("http://localhost:5000/submit-ans", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,9 +124,13 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
           setStopTimer(true);
           setAfterSubmit(true);
           setShowCorrectAnswers(true);
-          const correctAns = userResponses?.filter((ans) => ans?.isCorrect === true);
+          const correctAns = userResponses?.filter(
+            (ans) => ans?.isCorrect === true
+          );
           setCorrectAns(correctAns);
-          const wrongAns = userResponses?.filter((ans) => ans?.isCorrect === false);
+          const wrongAns = userResponses?.filter(
+            (ans) => ans?.isCorrect === false
+          );
           setWrongAns(wrongAns);
 
           const submittedAns = {
@@ -163,7 +171,7 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
                 ? " Non-Verbal Set-5"
                 : "",
           };
-          fetch("https://khulna-defence-coaching-server.onrender.com/submit-ans", {
+          fetch("http://localhost:5000/submit-ans", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -179,11 +187,25 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
     <div className="pb-5 mx-auto">
       <div>
         {showCorrectAnswers && (
-          <div className="flex justify-center">
+          <div className="flex justify-center bg-gray-300 w-2/4 mx-auto py-4 mb-4 rounded-lg">
             <div>
-              <h3 className="text-green-500 font-semibold text-xl">Correct Ans: {correctAns?.length}</h3>
-              <h3 className="text-red-500 font-semibold text-xl">Wrong Ans: {wrongAns?.length}</h3>
-              <h3 className="font-semibold text-xl">Not Ans: {totalQuizzes - correctAns?.length - wrongAns?.length}</h3>
+              <h3 className="text-3xl text-center font-bold">Your Result</h3>
+              <h3 className="text-green-500 font-semibold text-xl text-center">
+                Correct Ans: {correctAns?.length}
+              </h3>
+              <h3 className="text-red-500 font-semibold text-xl text-center">
+                Wrong Ans: {wrongAns?.length}
+              </h3>
+              <h3 className="font-semibold text-xl text-center">
+                Not Ans: {totalQuizzes - correctAns?.length - wrongAns?.length}
+              </h3>
+              <h3 className="font-semibold text-xl text-center">
+                Accuracy:{" "}
+                {(correctAns?.length /
+                  (correctAns?.length + wrongAns?.length)) *
+                  100}
+                %
+              </h3>
             </div>
           </div>
         )}
@@ -195,7 +217,9 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
             key={index}
             onClick={() => setDisplayQues(index)}
             className={`m-1 ${
-              answeredQuiz.includes(quiz.quizNumber) ? "bg-blue-500 hover:bg-blue-700 text-white" : "bg-gray-200 text-black "
+              answeredQuiz.includes(quiz.quizNumber)
+                ? "bg-blue-500 hover:bg-blue-700 text-white"
+                : "bg-gray-200 text-black "
             } ${
               index === displayQues
                 ? userResponses[index] && showCorrectAnswers
@@ -218,35 +242,65 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
         <p className="text-xl font-bold mb-4">
           {displayQues + 1}. {quizzes[displayQues]?.question}
         </p>
-
-        <div>
+        {quizzes[displayQues]?.imageUrl ? (
+          <img
+            width="550px"
+            className="mx-auto"
+            src={quizzes[displayQues]?.imageUrl}
+            alt=""
+          />
+        ) : (
+          ""
+        )}
+        <div className="">
           {quizzes[displayQues]?.options && (
-            <div>
-              {Object.entries(quizzes[displayQues].options).map(([optionKey, optionValue]) => (
-                <label key={optionKey} className="flex items-center mt-2">
-                  <input
-                    disabled={afterSubmit === true ? true : false}
-                    type="checkbox"
-                    onChange={() => handleOptionSelect(optionKey)}
-                    checked={userResponses[displayQues]?.selectedOption === optionKey}
-                  />
-                  <span className="ml-2">{optionValue}</span>
-                </label>
-              ))}
+            <div className="">
+              <div className="grid grid-cols-3 mt-6">
+                {Object.entries(quizzes[displayQues].options).map(
+                  ([optionKey, optionValue]) => (
+                    <label key={optionKey} className="flex items-center mt-2">
+                      <input
+                        disabled={afterSubmit === true ? true : false}
+                        type="checkbox"
+                        onChange={() => handleOptionSelect(optionKey)}
+                        checked={
+                          userResponses[displayQues]?.selectedOption ===
+                          optionKey
+                        }
+                      />
+                      <span className="ml-2 text-xl cursor-pointer">
+                        {optionValue}
+                      </span>
+                    </label>
+                  )
+                )}
+              </div>
 
               {showCorrectAnswers && userResponses[displayQues] && (
                 <div>
                   {userResponses[displayQues]?.isCorrect ? null : (
                     <p className="text-red-500 mt-2">
-                      Your answer: {quizzes[displayQues].options[userResponses[displayQues]?.selectedOption]}
+                      Your answer:{" "}
+                      {
+                        quizzes[displayQues].options[
+                          userResponses[displayQues]?.selectedOption
+                        ]
+                      }
                     </p>
                   )}
                   <p className="text-gray-500 mt-2">
-                    Correct answer: {quizzes[displayQues].options[userResponses[displayQues]?.correctOption]}
+                    Correct answer:{" "}
+                    {
+                      quizzes[displayQues].options[
+                        userResponses[displayQues]?.correctOption
+                      ]
+                    }
                   </p>
                 </div>
               )}
-              {!userResponses[displayQues] && showCorrectAnswers && <p className="text-gray-500 mt-2">Not Answered</p>}
+              {!userResponses[displayQues] && showCorrectAnswers && (
+                <p className="text-gray-500 mt-2">Not Answered</p>
+              )}
             </div>
           )}
         </div>
@@ -265,17 +319,6 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
           </button>
 
           <button
-            disabled={afterSubmit === true ? true : false}
-            onClick={handleSubmit}
-            className={`mt-4    
-             text-2xl font-bold py-2 px-4 rounded ${
-               afterSubmit === true ? "bg-gray-400" : "bg-black hover:bg-yellow-400 hover:text-black text-yellow-400"
-             }`}
-          >
-            Submit
-          </button>
-
-          <button
             disabled={displayQues === totalQuizzes - 1} // Disable next button when displaying the last quiz
             onClick={handleNext}
             className={`mt-4  ${
@@ -287,6 +330,20 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
             Next
           </button>
         </div>
+      </div>
+      <div className="flex justify-center">
+        <button
+          disabled={afterSubmit === true ? true : false}
+          onClick={handleSubmit}
+          className={`mt-4    
+             text-2xl font-bold py-2 px-4 rounded ${
+               afterSubmit === true
+                 ? "bg-gray-400"
+                 : "bg-black hover:bg-yellow-400 hover:text-black text-yellow-400"
+             }`}
+        >
+          Submit
+        </button>
       </div>
     </div>
   );

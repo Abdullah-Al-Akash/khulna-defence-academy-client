@@ -15,6 +15,8 @@ import AddQuiz from "../Components/Dashboarrd/AddQuiz";
 import DashboardUpdateQuizCard from "../Components/Dashboarrd/UpdateQuiz/DashboardUpdateQuizCard";
 import UpdateQuiz from "../Components/Dashboarrd/UpdateQuiz/UpdateQuiz";
 import DashboardUsers from "../Components/Dashboarrd/DashboardUsers/DashboardUsers";
+import PrivateRoute from "./PrivateRoute";
+import DashboardNotice from "../Components/Dashboarrd/DashboardNotice/DashboardNotice";
 
 export const router = createBrowserRouter([
   {
@@ -51,35 +53,75 @@ export const router = createBrowserRouter([
       },
       {
         path: "/onlineTest",
-        element: <OnlineTest></OnlineTest>,
+        element: (
+          <PrivateRoute>
+            <OnlineTest></OnlineTest>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/onlineTest/:id",
-        element: <QuizTimer></QuizTimer>,
+        element: (
+          <PrivateRoute>
+            <QuizTimer></QuizTimer>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard",
-        element: <DashboardHome></DashboardHome>,
+        element: (
+          <PrivateRoute>
+            <DashboardHome></DashboardHome>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/quiz",
-        element: <DashboardQuizCard></DashboardQuizCard>,
+        element: (
+          <PrivateRoute>
+            <DashboardQuizCard></DashboardQuizCard>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/update-quiz",
-        element: <DashboardUpdateQuizCard></DashboardUpdateQuizCard>,
+        element: (
+          <PrivateRoute>
+            <DashboardUpdateQuizCard></DashboardUpdateQuizCard>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/package/:quizId",
-        element: <AddQuiz></AddQuiz>,
+        element: (
+          <PrivateRoute>
+            <AddQuiz></AddQuiz>,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/update-quiz/:quizId",
-        element: <UpdateQuiz></UpdateQuiz>,
+        element: (
+          <PrivateRoute>
+            <UpdateQuiz></UpdateQuiz>,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/users",
-        element: <DashboardUsers></DashboardUsers>,
+        element: (
+          <PrivateRoute>
+            <DashboardUsers></DashboardUsers>,
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/notice",
+        element: (
+          <PrivateRoute>
+            <DashboardNotice></DashboardNotice>,
+          </PrivateRoute>
+        ),
       },
     ],
   },
