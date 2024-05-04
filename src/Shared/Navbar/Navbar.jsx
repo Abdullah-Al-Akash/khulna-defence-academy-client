@@ -11,18 +11,19 @@ const Navbar = () => {
       </li>
 
       <li>
-        <a className="text-sm font-bold hover:text-yellow-400 hover:bg-white">
+        <a
+          href="#about-us"
+          className="text-sm font-bold hover:text-yellow-400 hover:bg-white"
+        >
           আমাদের সম্পর্কে
         </a>
       </li>
       <li>
-        <a className="text-sm font-bold hover:text-yellow-400 hover:bg-white">
-          পাঠ্যধারাগুলি
-        </a>
-      </li>
-      <li>
-        <a className="text-sm font-bold hover:text-yellow-400 hover:bg-white">
-          গ্যালারি
+        <a
+          href="#courses"
+          className="text-sm font-bold hover:text-yellow-400 hover:bg-white"
+        >
+          আমাদের কোর্স সমূহ
         </a>
       </li>
       <li>
@@ -33,14 +34,6 @@ const Navbar = () => {
           আমাদের বইসমূহ
         </a>
       </li>
-      {/* <li>
-        <Link
-          to="/test"
-          className="text-sm font-bold hover:text-yellow-400 hover:bg-white"
-        >
-          অনলাইন টেস্ট
-        </Link>
-      </li> */}
       <li>
         <Link
           to="/onlineTest"

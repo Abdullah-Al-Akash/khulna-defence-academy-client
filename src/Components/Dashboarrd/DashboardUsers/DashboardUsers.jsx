@@ -5,7 +5,7 @@ const DashboardUsers = () => {
   const [users, setUsers] = useState([]);
   const [result, setResult] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://khulna-defence-coaching-server.onrender.com/users")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -15,7 +15,9 @@ const DashboardUsers = () => {
   //   Handle Display Result:
   const displayResult = (email) => {
     document.getElementById("my_modal_4").showModal();
-    fetch(`http://localhost:5000/submit-ans?email=${email}`)
+    fetch(
+      `https://khulna-defence-coaching-server.onrender.com/submit-ans?email=${email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setResult(data);

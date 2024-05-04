@@ -36,13 +36,16 @@ const Registration = () => {
         .then((userCredential) => {
           // User registration successful, show success SweetAlert
           try {
-            fetch("http://localhost:5000/registration", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(userInformation),
-            });
+            fetch(
+              "https://khulna-defence-coaching-server.onrender.com/registration",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userInformation),
+              }
+            );
           } catch (err) {
             console.log(err);
           }

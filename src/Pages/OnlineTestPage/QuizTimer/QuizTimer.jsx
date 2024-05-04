@@ -12,7 +12,7 @@ const QuizTimer = () => {
   const [showModal, setShowModal] = useState(false);
   const [quizzes, setQuizzes] = useState([]);
   const [stopTimer, setStopTimer] = useState(false);
-  const url = `http://localhost:5000/package?id=${id}`;
+  const url = `https://khulna-defence-coaching-server.onrender.com/package?id=${id}`;
 
   useEffect(() => {
     fetch(url)

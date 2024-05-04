@@ -8,7 +8,7 @@ const DashboardNotice = () => {
   const [noticeId, setNoticeId] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/notices")
+    fetch("https://khulna-defence-coaching-server.onrender.com/notices")
       .then((res) => res.json())
       .then((data) => {
         setNotices(data);
@@ -35,13 +35,16 @@ const DashboardNotice = () => {
     heatNotices(updatedNotice);
   };
   const heatNotices = (updatedNotice) => {
-    fetch(`http://localhost:5000/updateNotice?id=${noticeId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedNotice),
-    })
+    fetch(
+      `https://khulna-defence-coaching-server.onrender.com/updateNotice?id=${noticeId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedNotice),
+      }
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

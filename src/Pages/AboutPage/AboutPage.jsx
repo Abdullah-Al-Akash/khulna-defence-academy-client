@@ -6,16 +6,16 @@ import AboutPreparation from "./AboutPreparation";
 const AboutPage = () => {
   const [notices, setNotices] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/notices")
+    fetch("https://khulna-defence-coaching-server.onrender.com/notices")
       .then((res) => res.json())
       .then((data) => {
         setNotices(data);
       });
   }, []);
   return (
-    <div className="about-bg md:px-[84px] px-[10px] py-[30px]">
-      <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
-        <div className="my-auto">
+    <div id="about-us" className="about-bg md:px-[84px] px-[10px] py-[30px]">
+      <div className="md:grid md:grid-cols-3 gap-8">
+        <div className="my-auto col-span-2">
           <h3 className="text-center text-[20px] font-bold">আমাদের সম্পর্কে</h3>
           <h1
             className="text-center text-[35px] font-bold mt-5 leading-10
@@ -33,19 +33,16 @@ const AboutPage = () => {
             লেখার।
           </p>
         </div>
-        <div className="bg-white shadow-2xl py-[35px] rounded-md">
-          <h3 className="font-bold text-[35px] text-center mb-4">
-            চলমান সার্কুলার সমূহ
+        <div className="bg-white shadow-2xl py-2 md:py-[35px] rounded-md">
+          <h3 className="font-bold text-2xl md:text-[35px] text-center mb-4">
+            অফিসার পদে <br /> চলমান সার্কুলার সমূহ
           </h3>
-          {/* <p className="text-[20px] font-bold text-center pb-[10px]">
-            গুরুত্বপূর্ন তারিখগুলো
-          </p> */}
           {notices?.map((notice) => (
             <div className="text-center">
               <a
                 target="_blank"
                 href={notice?.noticeLink}
-                className="font-bold text-[20px] py-[15px] hover:text-yellow-500 cursor-pointer"
+                className="font-bold text-[20px] py-2 md:py-[15px] hover:text-yellow-500 cursor-pointer"
               >
                 {notice.notice}
               </a>
@@ -55,12 +52,12 @@ const AboutPage = () => {
                 </div>
                 <h3>আবেদনের শেষ তারিখঃ {notice.lastDate}</h3>
               </div>
-              <hr className="w-3/4 mx-auto mt-8"></hr>
+              <hr className="w-3/4 mx-auto mt-4"></hr>
             </div>
           ))}
         </div>
       </div>
-      <AboutPreparation></AboutPreparation>
+      {/* <AboutPreparation></AboutPreparation> */}
     </div>
   );
 };

@@ -170,6 +170,19 @@ const Heading = () => {
                           My Profile
                         </Link>
                       </li>
+                      {user?.email == "aabdullahalakash@gmail.com" ||
+                      user?.email == "kdc2018.web@gmail.com" ? (
+                        <li>
+                          <Link
+                            to="/dashboard"
+                            className=" text-black font-semibold hover:bg-black hover:text-yellow-400 mt-4"
+                          >
+                            Dashboard
+                          </Link>
+                        </li>
+                      ) : (
+                        ""
+                      )}
                       <li className="mt-4">
                         <button
                           onClick={handleUserLogOut}

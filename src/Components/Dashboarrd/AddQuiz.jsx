@@ -57,7 +57,7 @@ const AddQuiz = () => {
     // Post Quiz Question to database:
     try {
       const response = await fetch(
-        `http://localhost:5000/package?id=${quizId}`,
+        `https://khulna-defence-coaching-server.onrender.com/package?id=${quizId}`,
         {
           method: "POST",
           headers: {
@@ -100,7 +100,9 @@ const AddQuiz = () => {
     }
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/package?id=${quizId}`)
+    fetch(
+      `https://khulna-defence-coaching-server.onrender.com/package?id=${quizId}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setLatesQuiz(data);

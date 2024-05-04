@@ -15,16 +15,25 @@ const Footer = () => {
             <img className="" src={logo} alt="" />
           </div>
           <h3 className="text-center text-white py-[10px]">
-            আমার বাংলা নিয়ে প্রথম কাজ করবার সুযোগ তৈরি হয়েছিল অভ্র^ নামক এক
-            যুগান্তকারী বাংলা সফ্‌টওয়্যার হাতে পাবার মধ্য দিয়ে। এর পর একে একে
-            বাংলা উইকিপিডিয়া
+            বাংলাদেশ সামরিক বাহিনীতে অফিসার পদে যোগদানের জন্য খুলনা বিভাগের
+            একমাত্র পূর্ণাঙ্গ ট্রেনিং একাডেমি।
           </h3>
           <div className="flex items-center !justify-center mx-auto">
             <div>
-              <FaFacebookF className="text-white text-[35px] cursor-pointer hover:bg-yellow-500 hover:text-black hover:transition hover:duration-700 hover:ease-in-out rounded-full bg-black p-2 me-[7px]"></FaFacebookF>
+              <a
+                target="_blank"
+                href="https://www.facebook.com/kdc2018.official"
+              >
+                <FaFacebookF className="text-white text-[35px] cursor-pointer hover:bg-yellow-500 hover:text-black hover:transition hover:duration-700 hover:ease-in-out rounded-full bg-black p-2 me-[7px]"></FaFacebookF>
+              </a>
             </div>
             <div>
-              <TfiYoutube className="text-white text-[35px] cursor-pointer hover:bg-yellow-500 hover:text-black hover:transition hover:duration-700 hover:ease-in-out rounded-full bg-black p-1"></TfiYoutube>
+              <a
+                target="_blank"
+                href="https://www.youtube.com/@khulnadefencecoaching7373"
+              >
+                <TfiYoutube className="text-white text-[35px] cursor-pointer hover:bg-yellow-500 hover:text-black hover:transition hover:duration-700 hover:ease-in-out rounded-full bg-black p-1"></TfiYoutube>
+              </a>
             </div>
           </div>
         </nav>
@@ -68,11 +77,11 @@ const Footer = () => {
           </h6>
           <h6 className="link link-hover flex  justify-center items-center">
             <IoCall className="text-yellow-400 text-[25px] me-[15px]"></IoCall>
-            +3 123 456 789
+            01970-181233
           </h6>
           <h6 className="link link-hover flex  justify-center items-center">
             <MdEmail className="text-yellow-400 text-[25px] me-[15px]"></MdEmail>
-            info@yourmail.com
+            kdc2018.official@gmail.com
           </h6>
         </nav>
       </footer>

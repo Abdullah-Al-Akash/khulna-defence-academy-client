@@ -19,6 +19,7 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
 
   useEffect(() => {
     if (stopTimer) {
+      Swal.fire("Time is Over! Click ok to see result!");
       handleSubmit();
     }
   }, [stopTimer]); // This effect runs when stopTimer changes
@@ -103,7 +104,7 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
             ? " Non-Verbal Set-5"
             : "",
       };
-      fetch("http://localhost:5000/submit-ans", {
+      fetch("https://khulna-defence-coaching-server.onrender.com/submit-ans", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -171,13 +172,16 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
                 ? " Non-Verbal Set-5"
                 : "",
           };
-          fetch("http://localhost:5000/submit-ans", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(submittedAns),
-          });
+          fetch(
+            "https://khulna-defence-coaching-server.onrender.com/submit-ans",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(submittedAns),
+            }
+          );
         }
       });
     }
@@ -296,10 +300,15 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
                       ]
                     }
                   </p>
+                  <p className="text-gray-500 mt-2">
+                    Explanation: {quizzes[displayQues]?.explanation}
+                  </p>
                 </div>
               )}
               {!userResponses[displayQues] && showCorrectAnswers && (
-                <p className="text-gray-500 mt-2">Not Answered</p>
+                <>
+                  <p className="text-gray-500 mt-2">Not Answered</p>
+                </>
               )}
             </div>
           )}

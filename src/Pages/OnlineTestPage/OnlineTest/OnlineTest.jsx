@@ -29,7 +29,7 @@ const OnlineTest = () => {
       category: category,
       active: false,
     };
-    fetch("http://localhost:5000/reuestQuiz", {
+    fetch("https://khulna-defence-coaching-server.onrender.com/reuestQuiz", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
