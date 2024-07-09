@@ -8,7 +8,7 @@ import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <div className="">
+    <div id="contact" className="">
       <footer className="footer grid md:grid-cols-3 grid-cols-1 gap-4 md:px-[84px] px-[20px] py-4 bg-[#092e20]">
         <nav className="">
           <div className="mx-auto">
@@ -38,7 +38,7 @@ const Footer = () => {
           </div>
         </nav>
         <div className="grid grid-cols-2">
-          <nav className="text-white md:ms-[70px] mt-[30px]">
+          {/* <nav className="text-white md:ms-[70px] mt-[30px]">
             <h6 className="text-yellow-400 font-bold text-[16px] pb-[15px]">
               সাইটম্যাপ
             </h6>
@@ -49,8 +49,8 @@ const Footer = () => {
             <h6 className="link link-hover  hover:text-yellow-500">গ্যালারি</h6>
             <h6 className="link link-hover  hover:text-yellow-500">বইসমূহ</h6>
             <h6 className="link link-hover  hover:text-yellow-500">যোগাযোগ</h6>
-          </nav>
-          <nav className="text-white mt-[30px] ms-[60px]">
+          </nav> */}
+          {/* <nav className="text-white mt-[30px] ms-[60px]">
             <h6 className="text-yellow-400 font-bold text-[16px] pb-[15px] ">
               সাহায্য
             </h6>
@@ -65,14 +65,14 @@ const Footer = () => {
             <h6 className="link link-hover  hover:text-yellow-500">
               ডকুমেন্টেশন
             </h6>
-          </nav>
+          </nav> */}
         </div>
         <nav className="text-white mt-[30px]">
           <h6 className="text-yellow-400 font-bold text-[16px] pb-[15px]">
             যোগাযোগ করুন
           </h6>
           <h6 className="link link-hover flex  justify-center items-center">
-            <FaHome className="text-yellow-400 text-[45px] me-[15px]"></FaHome>
+            <FaHome className="text-yellow-400 text-[30px] me-[15px]"></FaHome>
             ২৯/১, শেরে-বাংলা রোড (ময়লাপোতা মোড়, শাপলা ক্লিনিকের পাশে), খুলনা।
           </h6>
           <h6 className="link link-hover flex  justify-center items-center">

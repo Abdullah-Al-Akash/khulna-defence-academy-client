@@ -58,7 +58,7 @@ const Heading = () => {
             </div>
             <div className="w-1/8">
               <h2 className="text-3xl font-extrabold py-[5px]">
-                Khulna <span className="text-yellow-700">Defence Coaching</span>
+              Defence <span className="text-yellow-700"> Career Academy</span>
               </h2>
               <h4 className="font-bold text-xl pb-[4px]">
                 Come | Learn | Conquer
@@ -142,7 +142,7 @@ const Heading = () => {
             </div>
             <div>
               <h2 className="text-xl font-extrabold text-center">
-                Khulna Defence <span className="text-yellow-400">Coaching</span>
+                Khulna <span className="text-yellow-700">Defence Coaching</span>
               </h2>
             </div>
             <div className="">

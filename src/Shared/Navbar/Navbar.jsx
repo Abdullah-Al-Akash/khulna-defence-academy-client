@@ -5,9 +5,12 @@ const Navbar = () => {
   const navOptions = (
     <>
       <li>
-        <a className="text-sm font-bold hover:text-yellow-400 hover:bg-white">
+        <Link
+          to="/"
+          className="text-sm font-bold hover:text-yellow-400 hover:bg-white"
+        >
           মূল পাতা
-        </a>
+        </Link>
       </li>
 
       <li>
@@ -43,7 +46,10 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-        <a className="text-sm font-bold hover:text-yellow-400 hover:bg-white">
+        <a
+          href="#contact"
+          className="text-sm font-bold hover:text-yellow-400 hover:bg-white"
+        >
           যোগাযোগ
         </a>
       </li>

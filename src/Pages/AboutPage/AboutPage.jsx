@@ -9,6 +9,7 @@ const AboutPage = () => {
     fetch("https://khulna-defence-coaching-server.onrender.com/notices")
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         setNotices(data);
       });
   }, []);
@@ -38,19 +39,19 @@ const AboutPage = () => {
             অফিসার পদে <br /> চলমান সার্কুলার সমূহ
           </h3>
           {notices?.map((notice) => (
-            <div className="text-center">
+            <div key={notice._id} className="text-center">
               <a
                 target="_blank"
                 href={notice?.noticeLink}
                 className="font-bold text-[20px] py-2 md:py-[15px] hover:text-yellow-500 cursor-pointer"
               >
-                {notice.notice}
+                {notice?.notice}
               </a>
               <div className="flex justify-center items-center mt-4">
                 <div>
                   <FaCalendarAlt className="text-[20px] text-yellow-500 me-2"></FaCalendarAlt>
                 </div>
-                <h3>আবেদনের শেষ তারিখঃ {notice.lastDate}</h3>
+                <h3>আবেদনের শেষ তারিখঃ {notice?.lastDate}</h3>
               </div>
               <hr className="w-3/4 mx-auto mt-4"></hr>
             </div>
