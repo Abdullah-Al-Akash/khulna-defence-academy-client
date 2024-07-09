@@ -12,6 +12,29 @@ const QuizTimer = () => {
   const [showModal, setShowModal] = useState(false);
   const [quizzes, setQuizzes] = useState([]);
   const [stopTimer, setStopTimer] = useState(false);
+  const [allowNavigation, setAllowNavigation] = useState(false);
+  useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      if (!allowNavigation) {
+        e.preventDefault();
+        e.returnValue = '';
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [allowNavigation]);
+
+  const handleBackButtonClick = () => {
+    const confirmLeave = window.confirm('Are you sure you want to leave this page?');
+    if (confirmLeave) {
+      setAllowNavigation(true);
+      window.history.back();
+    }
+  };
   const url = `https://khulna-defence-coaching-server.onrender.com/package?id=${id}`;
 
   useEffect(() => {
@@ -99,10 +122,10 @@ const QuizTimer = () => {
     <div className="container mx-auto mt-10  min-h-[350px]">
       <div>
         {/* Back button */}
-        <Link to="/onlineTest" className="inline-block mb-4 text-blue-500">
+        <h2 onClick={handleBackButtonClick} className="hover:cursor-pointer inline-block mb-4 text-blue-500">
           <FaArrowLeft className="inline mr-1" />
           Back
-        </Link>
+        </h2>
       </div>
       <h2 className="text-3xl text-center font-bold mb-6">{currentSet}</h2>
       {showModal && (

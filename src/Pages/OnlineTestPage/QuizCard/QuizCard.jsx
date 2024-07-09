@@ -19,7 +19,7 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
 
   useEffect(() => {
     if (stopTimer) {
-      Swal.fire("Time is Over! Click ok to see result!");
+      Swal.fire("Ans Submitted Successfully!");
       handleSubmit();
     }
   }, [stopTimer]); // This effect runs when stopTimer changes
@@ -54,6 +54,42 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
     setUserResponses(updatedResponses);
   };
 
+  // Date
+  const[submittedDate, setSubmittedDate] = useState('');
+  const formatDate = (date) => {
+    const ordinalSuffix = (day) => {
+      if (day > 3 && day < 21) return 'th';
+      switch (day % 10) {
+        case 1: return 'st';
+        case 2: return 'nd';
+        case 3: return 'rd';
+        default: return 'th';
+      }
+    };
+  
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+  
+    const day = date.getDate();
+    const month = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+  
+    let hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+  
+    setSubmittedDate(`${day}${ordinalSuffix(day)} ${month}, ${year}.${hours}:${formattedMinutes}${ampm}`);
+  };
+  
+  
+  
+  
+
   const handleSubmit = () => {
     if (stopTimer) {
       setStopTimer(true);
@@ -65,8 +101,9 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
       setCorrectAns(correctAns);
       const wrongAns = userResponses?.filter((ans) => ans?.isCorrect === false); // Null check added here
       setWrongAns(wrongAns);
-
+      
       const submittedAns = {
+        submittedDate: submittedDate,
         email: user?.email,
         correctAns: correctAns?.length,
         wrongAns: wrongAns?.length,
@@ -205,8 +242,8 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
               </h3>
               <h3 className="font-semibold text-xl text-center">
                 Accuracy:{" "}
-                {(correctAns?.length /
-                  (correctAns?.length + wrongAns?.length)) *
+                {(parseFloat((correctAns?.length)) /
+                  (parseFloat(correctAns?.length) + parseFloat(wrongAns?.length))) *
                   100}
                 %
               </h3>
@@ -308,6 +345,11 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
               {!userResponses[displayQues] && showCorrectAnswers && (
                 <>
                   <p className="text-gray-500 mt-2">Not Answered</p>
+                  {
+                      quizzes[displayQues].options[
+                        userResponses[displayQues]?.correctOption
+                      ]
+                    }
                 </>
               )}
             </div>

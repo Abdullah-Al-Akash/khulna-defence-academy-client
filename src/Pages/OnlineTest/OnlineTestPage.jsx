@@ -130,7 +130,7 @@ const OtherComponent = ({ quizs }) => {
             Back
           </button>
           <button
-            disabled={quizs.length == displayQues ? true : false}
+            disabled={quizs?.length == displayQues ? true : false}
             onClick={handleNext}
             className={`mt-4  ${
               quizs.length == displayQues

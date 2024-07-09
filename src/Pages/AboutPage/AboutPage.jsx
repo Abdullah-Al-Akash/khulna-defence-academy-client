@@ -35,27 +35,72 @@ const AboutPage = () => {
           </p>
         </div>
         <div className="bg-white shadow-2xl py-2 md:py-[35px] rounded-md">
-          <h3 className="font-bold text-2xl md:text-[35px] text-center mb-4">
+          <h3 className="font-bold text-2xl md:text-[35px] text-center mb-4 leading-10">
             অফিসার পদে <br /> চলমান সার্কুলার সমূহ
           </h3>
-          {notices?.map((notice) => (
-            <div key={notice._id} className="text-center">
+            <div className="text-center">
+              <div className="flex justify-center items-center p-2">
+              <h1 className="text-xl font-semibold">আর্মিঃ</h1>
+              <marquee behavior="" direction="left">
               <a
                 target="_blank"
-                href={notice?.noticeLink}
-                className="font-bold text-[20px] py-2 md:py-[15px] hover:text-yellow-500 cursor-pointer"
+                href={notices[0]?.noticeLink}
+                className="text-[20px] hover:text-yellow-500 cursor-pointer underline text-blue-300"
               >
-                {notice?.notice}
+                {notices[0]?.notice}
               </a>
+              </marquee>
+              </div>
               <div className="flex justify-center items-center mt-4">
                 <div>
                   <FaCalendarAlt className="text-[20px] text-yellow-500 me-2"></FaCalendarAlt>
                 </div>
-                <h3>আবেদনের শেষ তারিখঃ {notice?.lastDate}</h3>
+                <h3>আবেদনের শেষ তারিখঃ {notices[0]?.lastDate}</h3>
               </div>
               <hr className="w-3/4 mx-auto mt-4"></hr>
             </div>
-          ))}
+            <div className="text-center">
+              <div className="flex justify-center items-center p-2">
+              <h1 className="text-xl font-semibold">নেভিঃ</h1>
+              <marquee behavior="" direction="left">
+              <a
+                target="_blank"
+                href={notices[1]?.noticeLink}
+                className="text-[20px] hover:text-yellow-500 cursor-pointer underline text-blue-300"
+              >
+                {notices[1]?.notice}
+              </a>
+              </marquee>
+              </div>
+              <div className="flex justify-center items-center mt-4">
+                <div>
+                  <FaCalendarAlt className="text-[20px] text-yellow-500 me-2"></FaCalendarAlt>
+                </div>
+                <h3>আবেদনের শেষ তারিখঃ {notices[1]?.lastDate}</h3>
+              </div>
+              <hr className="w-3/4 mx-auto mt-4"></hr>
+            </div>
+            <div className="text-center">
+              <div className="flex justify-center items-center p-2">
+              <h1 className="text-xl font-semibold">এয়ারফোর্সঃ</h1>
+              <marquee behavior="" direction="left">
+              <a
+                target="_blank"
+                href={notices[2]?.noticeLink}
+                className="text-[20px] hover:text-yellow-500 cursor-pointer underline text-blue-300"
+              >
+                {notices[2]?.notice}
+              </a>
+              </marquee>
+              </div>
+              <div className="flex justify-center items-center mt-4">
+                <div>
+                  <FaCalendarAlt className="text-[20px] text-yellow-500 me-2"></FaCalendarAlt>
+                </div>
+                <h3>আবেদনের শেষ তারিখঃ {notices[2]?.lastDate}</h3>
+              </div>
+              <hr className="w-3/4 mx-auto mt-4"></hr>
+            </div>
         </div>
       </div>
       {/* <AboutPreparation></AboutPreparation> */}
