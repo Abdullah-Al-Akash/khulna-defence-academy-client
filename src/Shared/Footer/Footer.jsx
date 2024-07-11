@@ -85,6 +85,9 @@ const Footer = () => {
           </h6>
         </nav>
       </footer>
+      <div className="bg-black text-white text-center p-2">
+        <h3>Developed by <a className="text-yellow-200 underline" target="_blank" href="https://www.facebook.com/abdullah.akash.al/">Abdullah Al Akash</a> </h3>
+      </div>
     </div>
   );
 };

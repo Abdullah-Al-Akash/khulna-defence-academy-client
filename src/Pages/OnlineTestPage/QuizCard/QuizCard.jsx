@@ -62,7 +62,6 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
 
   // Date
   
-  console.log(new Date);
   const handleSubmit = () => {
     
     if (stopTimer) {
