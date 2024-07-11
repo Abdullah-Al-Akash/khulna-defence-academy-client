@@ -17,6 +17,7 @@ import UpdateQuiz from "../Components/Dashboarrd/UpdateQuiz/UpdateQuiz";
 import DashboardUsers from "../Components/Dashboarrd/DashboardUsers/DashboardUsers";
 import PrivateRoute from "./PrivateRoute";
 import DashboardNotice from "../Components/Dashboarrd/DashboardNotice/DashboardNotice";
+import DashboardExamList from "../Components/Dashboarrd/DashboardExamList/DashboardExamList";
 
 export const router = createBrowserRouter([
   {
@@ -120,6 +121,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <DashboardNotice></DashboardNotice>,
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/exam-list",
+        element: (
+          <PrivateRoute>
+            <DashboardExamList></DashboardExamList>,
           </PrivateRoute>
         ),
       },

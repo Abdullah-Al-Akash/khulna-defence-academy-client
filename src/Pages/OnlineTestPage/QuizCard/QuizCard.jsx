@@ -12,8 +12,15 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
   const [afterSubmit, setAfterSubmit] = useState(false);
   const [answeredQuiz, setAnsweredQuiz] = useState([]);
   const { user } = useContext(AuthContext);
+  const[displayName, setDisplayName] = useState('');
 
-  console.log(stopTimer);
+  useEffect(()=>{
+    fetch(`https://khulna-defence-coaching-server.onrender.com/singleUser?email=${user?.email}`)
+    .then(res => res.json())
+    .then(data => {
+      setDisplayName(data.displayName)
+    })
+  },[user])
 
   // Set Quiz:
 
@@ -34,7 +41,6 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
     setDisplayQues(displayQues - 1);
   };
 
-  console.log(answeredQuiz);
 
   const handleOptionSelect = (selectedOption) => {
     const currentQuiz = quizzes[displayQues];
@@ -55,42 +61,10 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
   };
 
   // Date
-  const[submittedDate, setSubmittedDate] = useState('');
-  const formatDate = (date) => {
-    const ordinalSuffix = (day) => {
-      if (day > 3 && day < 21) return 'th';
-      switch (day % 10) {
-        case 1: return 'st';
-        case 2: return 'nd';
-        case 3: return 'rd';
-        default: return 'th';
-      }
-    };
   
-    const monthNames = [
-      "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
-    ];
-  
-    const day = date.getDate();
-    const month = monthNames[date.getMonth()];
-    const year = date.getFullYear();
-  
-    let hours = date.getHours();
-    const minutes = date.getMinutes();
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-    const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
-  
-    setSubmittedDate(`${day}${ordinalSuffix(day)} ${month}, ${year}.${hours}:${formattedMinutes}${ampm}`);
-  };
-  
-  
-  
-  
-
+  console.log(new Date);
   const handleSubmit = () => {
+    
     if (stopTimer) {
       setStopTimer(true);
       setAfterSubmit(true);
@@ -103,7 +77,8 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
       setWrongAns(wrongAns);
       
       const submittedAns = {
-        submittedDate: submittedDate,
+        name: displayName,
+        submittedDate: new Date,
         email: user?.email,
         correctAns: correctAns?.length,
         wrongAns: wrongAns?.length,
@@ -141,6 +116,7 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
             ? " Non-Verbal Set-5"
             : "",
       };
+      console.log(submittedAns);
       fetch("https://khulna-defence-coaching-server.onrender.com/submit-ans", {
         method: "POST",
         headers: {
@@ -172,6 +148,8 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
           setWrongAns(wrongAns);
 
           const submittedAns = {
+            name: displayName,
+            submittedDate: new Date,
             email: user?.email,
             correctAns: correctAns?.length,
             wrongAns: wrongAns?.length,

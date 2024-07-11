@@ -91,7 +91,7 @@ const Heading = () => {
                       <li>
                         <Link
                           to="/profile"
-                          className=" text-black font-semibold hover:bg-black hover:text-yellow-400"
+                          className="text-black font-semibold hover:bg-black hover:text-yellow-400"
                         >
                           My Profile
                         </Link>

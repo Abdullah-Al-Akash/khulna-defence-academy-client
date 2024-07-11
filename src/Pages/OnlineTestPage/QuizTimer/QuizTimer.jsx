@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import QuizCard from "../QuizCard/QuizCard";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
 const QuizTimer = () => {
