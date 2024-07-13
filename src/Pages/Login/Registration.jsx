@@ -4,7 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Registration = () => {
-  const { createUserUsingEmailAndPassword, updateUserProfile } =
+  const { createUser, updateUserProfile } =
     useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ const Registration = () => {
       });
     } else {
       // Passwords match, try to register the user
-      createUserUsingEmailAndPassword(email, password)
+      createUser(email, password)
         .then((userCredential) => {
           // User registration successful, show success SweetAlert
           try {

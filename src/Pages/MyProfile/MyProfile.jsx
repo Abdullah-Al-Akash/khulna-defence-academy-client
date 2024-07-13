@@ -3,6 +3,7 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const MyProfile = () => {
   const { user } = useContext(AuthContext);
+  console.log(user);
   const [result, setResult] = useState([]);
   const [liveUser, setLiveUser] = useState({});
   useEffect(() => {

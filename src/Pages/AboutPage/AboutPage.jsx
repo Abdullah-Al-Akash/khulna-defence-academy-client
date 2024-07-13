@@ -45,7 +45,7 @@ const AboutPage = () => {
               <a
                 target="_blank"
                 href={notices[0]?.noticeLink}
-                className="text-[20px] hover:text-yellow-500 cursor-pointer underline text-blue-300"
+                className="text-[20px] hover:text-yellow-500 text-yellow-500 cursor-pointer underline text-blue-300"
               >
                 {notices[0]?.notice}
               </a>
@@ -66,7 +66,7 @@ const AboutPage = () => {
               <a
                 target="_blank"
                 href={notices[1]?.noticeLink}
-                className="text-[20px] hover:text-yellow-500 cursor-pointer underline text-blue-300"
+                className="text-[20px] hover:text-yellow-500 text-yellow-500 cursor-pointer underline text-blue-300"
               >
                 {notices[1]?.notice}
               </a>
@@ -87,7 +87,7 @@ const AboutPage = () => {
               <a
                 target="_blank"
                 href={notices[2]?.noticeLink}
-                className="text-[20px] hover:text-yellow-500 cursor-pointer underline text-blue-300"
+                className="text-[20px] hover:text-yellow-500 text-yellow-500 cursor-pointer underline text-blue-300"
               >
                 {notices[2]?.notice}
               </a>

@@ -4,7 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { userSignInUsingEmailAndPassword } = useContext(AuthContext);
+  const { loginUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleUserLogin = (e) => {
@@ -13,7 +13,7 @@ const Login = () => {
     const email = form?.email?.value;
     const password = form?.password?.value;
 
-    userSignInUsingEmailAndPassword(email, password)
+    loginUser(email, password)
       .then((userCredential) => {
         // User login successful, show success SweetAlert
         Swal.fire({

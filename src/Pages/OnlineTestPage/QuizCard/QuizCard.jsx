@@ -12,6 +12,7 @@ const QuizCard = ({ stopTimer, setStopTimer, quizId, quizzes }) => {
   const [afterSubmit, setAfterSubmit] = useState(false);
   const [answeredQuiz, setAnsweredQuiz] = useState([]);
   const { user } = useContext(AuthContext);
+  
   const[displayName, setDisplayName] = useState('');
 
   useEffect(()=>{

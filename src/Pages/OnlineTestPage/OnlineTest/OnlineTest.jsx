@@ -4,6 +4,7 @@ import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
 
 const OnlineTest = () => {
   const { user } = useContext(AuthContext);
+  console.log(user);
   const [verbalQuiz, setVerbalQuiz] = useState([]);
   const [nonVerbalQuiz, setNonVerbalQuiz] = useState([]);
 

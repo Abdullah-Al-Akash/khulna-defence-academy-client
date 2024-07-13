@@ -54,83 +54,83 @@ export const router = createBrowserRouter([
       },
       {
         path: "/onlineTest",
-        element: (
+        element: 
           <PrivateRoute>
             <OnlineTest></OnlineTest>
           </PrivateRoute>
-        ),
+        
       },
       {
         path: "/onlineTest/:id",
-        element: (
+        element: 
           <PrivateRoute>
             <QuizTimer></QuizTimer>
           </PrivateRoute>
-        ),
+        
       },
       {
         path: "/dashboard",
-        element: (
+        element: 
           <PrivateRoute>
             <DashboardHome></DashboardHome>
           </PrivateRoute>
-        ),
+        
       },
       {
         path: "/dashboard/quiz",
-        element: (
+        element: 
           <PrivateRoute>
             <DashboardQuizCard></DashboardQuizCard>
           </PrivateRoute>
-        ),
+        
       },
       {
         path: "/dashboard/update-quiz",
-        element: (
+        element: 
           <PrivateRoute>
             <DashboardUpdateQuizCard></DashboardUpdateQuizCard>
           </PrivateRoute>
-        ),
+        
       },
       {
         path: "/dashboard/package/:quizId",
-        element: (
+        element: 
           <PrivateRoute>
             <AddQuiz></AddQuiz>,
           </PrivateRoute>
-        ),
+        
       },
       {
         path: "/dashboard/update-quiz/:quizId",
-        element: (
+        element: 
           <PrivateRoute>
             <UpdateQuiz></UpdateQuiz>,
           </PrivateRoute>
-        ),
+        
       },
       {
         path: "/dashboard/users",
-        element: (
+        element: 
           <PrivateRoute>
             <DashboardUsers></DashboardUsers>,
           </PrivateRoute>
-        ),
+        
       },
       {
         path: "/dashboard/notice",
-        element: (
+        element: 
           <PrivateRoute>
             <DashboardNotice></DashboardNotice>,
           </PrivateRoute>
-        ),
+        
       },
       {
         path: "/dashboard/exam-list",
-        element: (
+        element: 
           <PrivateRoute>
             <DashboardExamList></DashboardExamList>,
           </PrivateRoute>
-        ),
+        
       },
     ],
   },
